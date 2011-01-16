@@ -1,8 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int i, j, k, GCLen, XCLen, YCLen, RCLen, GFirst, XFirst, YFirst, RFirst;
-char *GBuilder[30];
-volatile float GVal, XVal, YVal, RVal;
+//what needs to be a * str?
+int i, j, k, GCLen, XCLen, YCLen, RCLen, GFirst, XFirst, YFirst, RFirst, GVal;
+
+char GString[10], XString[16], YString[16], RString[16];
+
+float XVal, YVal, RVal;
+
 int main ( void )
 {
    static const char filename[] = "gcodes.txt";
@@ -22,8 +27,10 @@ int main ( void )
 					 for (j = 0; line[i+j] != ' '; j++) {
 					 GCLen = j;
 					 }
-					 // GFirst will be 0(+1), GCLen will be 2, I want to copy 2 values, starting at 0. atof takes (const char * str)
-					 //GVal = atof(GBuilder);
+					 for (k = 0; k < 16; k++) {
+					 *(GString+k) = line[i+1+k];
+					 }
+					 GVal = atoi(GString);
 					 }
 					 
 					 if(line[i] == 'X') {
@@ -31,6 +38,10 @@ int main ( void )
 					 for (j = 0; line[i+j] != ' '; j++) {
 					 XCLen = j;
 					 }
+					 for (k = 0; k < 16; k++) {
+					 *(XString+k) = line[i+1+k];
+					 }
+					 XVal = atof(XString);
 					 }
 					 
 					 if(line[i] == 'Y') {
@@ -38,6 +49,10 @@ int main ( void )
 					 for (j = 0; line[i+j] != ' '; j++) {
 					 YCLen = j;
 					 }
+					 for (k = 0; k < 16; k++) {
+					 *(YString+k) = line[i+1+k];
+					 }
+					 YVal = atof(YString);
 					 }
 					 
 					 
@@ -46,6 +61,10 @@ int main ( void )
 					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {
 					 RCLen = j;
 					 }
+					 for (k = 0; k < 16; k++) {
+					 *(RString+k) = line[i+1+k];
+					 }
+					 RVal = atof(RString);
 					 }
 					 
 					 if(line[i] != '\n') {
@@ -55,8 +74,7 @@ int main ( void )
 						 
          
       }
-      printf("\nG(%d)%d X(%d)%d Y(%d)%d R(%d)%d.\n\n", GCLen, GFirst, XCLen, XFirst, YCLen, YFirst, RCLen, RFirst);
-      printf(*GBuilder);
+      printf("\nG(%d)%d X(%d)%d Y(%d)%d R(%d)%d. \nG=%d, X=%.3f, Y=%.3f, R=%.3f\n\n", GCLen, GFirst, XCLen, XFirst, YCLen, YFirst, RCLen, RFirst, GVal, XVal, YVal, RVal);
       }
       fclose (file);
    }
@@ -65,4 +83,5 @@ int main ( void )
       perror (filename); /* why didn't the file open? */
    }
    return 0;
+
 }
