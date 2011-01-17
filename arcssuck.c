@@ -3,14 +3,17 @@
 #include <string.h>
 #include <math.h>
 
-int do_AmountSteps(float start_x, float start_y, float end_x, float end_y, char rez);
+int find_LinearSteps(float centre_x, float centre_y, float radius, char rez);
+void write_Out(float GX, float GY, int l, FILE *fp);
 char do_Determine(float start_x, float start_y, float end_x, float end_y);
-void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, char rez, FILE *fp, int l);
+void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, float GI, float GJ, char rez, FILE *fp, int l);
 
-char filename[30], GString[10], XString[16], YString[16], RString[16];
-int x_positive, y_positive, rez, amt_steps, curstep, stepcalc, y_switch, x_direction, y_direction, i, j, k, m, n, GCLen, XCLen, YCLen, RCLen, GFirst, XFirst, YFirst, RFirst, GVal;
+char filename[30], GString[10], XString[16], YString[16], RString[16], IString[16], JString[16];
+int x_positive, y_positive, rez, amt_steps, curstep, stepcalc, y_switch, x_direction, y_direction, i, j, k, m, n, p, GCLen, XCLen, YCLen, RCLen, ICLen, JCLen, GFirst, XFirst, YFirst, RFirst, IFirst, JFirst, GVal;
 int l = 1;
-float temp_x, temp_y, GX, GY, yval, resolution, currentx, arc_number, arc_value, listarray[1000][2], XVal, YVal, RVal, XLast, YLast, XCen, YCen, DOPS;
+int stepcounter;
+signed int p = 1;
+float temp_x, temp_y, GX, GY, GI, GJ, yval, resolution, currentx, arc_number, arc_value, listarray[1000][2], XVal, YVal, RVal, IVal, JVal, XLast, YLast, XCen, YCen, DOPS;
 
 int main ( int argc, char *argv[] )
 {
@@ -29,23 +32,36 @@ FILE *file = fopen ( argv[1], "r" );
       fprintf(fp, "\"\n\n");
       
       while ( fgets(line, sizeof line, file)) {
-				GCLen, XCLen, YCLen, RCLen, GVal = 0;
+				//GCLen, XCLen, YCLen, RCLen, ICLen, JCLen, GVal, IVal, JVal, RVal = 0;
+				memset(RString, 0, 16);
+				memset(IString, 0, 16);
+				memset(JString, 0, 16);
+				GCLen = 0;
+				XCLen = 0;
+				YCLen = 0;
+				RCLen = 0;
+				ICLen = 0;
+				JCLen = 0;
+				GVal = 0;
+				RVal = 0;
+				JVal = 0;
+				IVal = 0;
 				for (i = 0; line[i]; i++) {
 				 if(line[i] == 'G' || line[i] == 'g') {
 					 GFirst = i;
-					 for (j = 0; line[i+j] != ' '; j++) {GCLen = j;}
+					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {GCLen = j;}
 					 for (k = 0; k < 16; k++) {*(GString+k) = line[i+1+k];}
 					 GVal = atoi(GString);
 					 }
 					 if(line[i] == 'X' || line[i] == 'x') {
 					 XFirst = i;
-					 for (j = 0; line[i+j] != ' '; j++) {XCLen = j; }
+					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {XCLen = j; }
 					 for (k = 0; k < 16; k++) {*(XString+k) = line[i+1+k];}
 					 XVal = atof(XString);
 					 }
 					 if(line[i] == 'Y' || line[i] == 'y') {
 					 YFirst = i;
-					 for (j = 0; line[i+j] != ' '; j++) {YCLen = j;}
+					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++)  {YCLen = j;}
 					 for (k = 0; k < 16; k++) {*(YString+k) = line[i+1+k];}
 					 YVal = atof(YString);
 					 }
@@ -55,12 +71,26 @@ FILE *file = fopen ( argv[1], "r" );
 					 for (k = 0; k < 16; k++) {*(RString+k) = line[i+1+k];}
 					 RVal = atof(RString);
 					 }
+					 if(line[i] == 'I' || line[i] == 'i') {
+					 IFirst = i;
+					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {ICLen = j;}
+					 for (k = 0; k < 16; k++) {*(IString+k) = line[i+1+k];}
+					 IVal = atof(IString);
+					 }
+					 if(line[i] == 'J' || line[i] == 'j') {
+					 JFirst = i;
+					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {JCLen = j;}
+					 for (k = 0; k < 16; k++) {*(JString+k) = line[i+1+k];}
+					 JVal = atof(JString);
+					 }
 					 if(line[i] != '\n') {
 					 //printf("%c", line[i]);
 					 }
+					// printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
       }
+      printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
       if (GVal == 2 || GVal == 3 ) {
-      do_CalculateAndPrint(GVal,XLast,YLast,XVal,YVal,RVal,1,fp,l);
+      do_CalculateAndPrint(GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal,1,fp,l);
       XLast = XVal;
       YLast = YVal;
       }
@@ -85,84 +115,89 @@ FILE *file = fopen ( argv[1], "r" );
    return 0;
 }
 
-void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, char rez, FILE *fp, int l) {
-int AmountSteps = do_AmountSteps(start_x, start_y, end_x, end_y, rez);
-printf("\n%d\n",AmountSteps);
+void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, float GI, float GJ, char rez, FILE *fp, int l) {
 float resolution = ((float)1/rez);
-
 
 //##################### START REDO ################################
 				// I am passed gType, (Start X, Start Y), (End X, End Y), radius, resolution.
 				// The important aspects are StartX StartY EndX EndY Radius.
 				// According to the circle, we are given 2 points on an edge, and a radius.
 				// From this, we can determine the values we need.
-				// First, seeing as we have no I or J coordinates, we need to determine the center point of the circle.
+				// First, seeing as we have no I or J coordinates, we need to determine the centre point of the circle.
 				// We can do this by using 
 				// q = sqrt((x2-x1)^2 + (y2-y1)^2)
 				// x3 = (x1+x2)/2
 				// y3 = (y1+y2)/2
 				// x = [x3] ± sqrt(r^2-([q]/2)^2)*([y1]-[y2])/q
         // y = [y3] ± sqrt(r^2-([q]/2)^2)*([x2]-[x1])/q  
-        // where (x,y) is the center point. q is the distance between the two points. x1,y1 is the first point, x2,y2 is the second point. x3 and y3 are the linear distances between the start and end.
-        
+        // where (x,y) is the centre point. q is the distance between the two points. x1,y1 is the first point, x2,y2 is the second point. x3 and y3 are the linear distances between the start and end.
+        float centre_x;
+        float centre_y;
+        //float centre_x_neg;
+        //float centre_y_neg;
+        centre_x = GI;
+centre_y = GJ;
+        float RDOPS = sqrt(((centre_x+start_x)-(start_x))*((centre_x+start_x)-(start_x))+((centre_y+start_y)-(start_y))*((centre_y+start_y)-(start_y)));
+            //float RDOPS = sqrt(((centre_x-start_x)*(centre_x-start_x))+((centre_y-start_y)*(centre_y-start_y)));
 float DOPS = sqrt(((end_x-start_x)*(end_x-start_x))+((end_y-start_y)*(end_y-start_y)));
 float dist_x = (start_x+end_x)/2;
 float dist_y = (start_y+end_y)/2;
-float center_x_pos = dist_x + (sqrt((radius*radius)-((DOPS/2)*(DOPS/2)))*(start_y-end_y))/DOPS;
-float center_x_neg = dist_x - (sqrt((radius*radius)-((DOPS/2)*(DOPS/2)))*(start_y-end_y))/DOPS;
-float center_y_pos = dist_y + (sqrt((radius*radius)-((DOPS/2)*(DOPS/2)))*(start_x-end_x))/DOPS;
-float center_y_neg = dist_y - (sqrt((radius*radius)-((DOPS/2)*(DOPS/2)))*(start_x-end_x))/DOPS;
+printf("RDOPS-err-\n");
+printf("RDOPS-%f-\n", RDOPS);
+//printf("RDOPS-%f-\n", DOPS);
 
-        // we now have our center point for our circles (clockwise and counterclockwise)
+        // Find first point on line so I can calculate the radius.
+int q;
+        //for (q = centre_x; (sqrt((RDOPS*RDOPS)-((q-centre_x)*(q-centre_y)))); q--) {
+       // printf("<<%d>>\n", q);
+       // }
+        
+        float xval = sqrt((radius*radius)-((m-centre_x)*(m-centre_y))); //bottom
+        
+
+if(GI>0) {
+centre_x = GI;
+} else {
+centre_x = dist_x + (sqrt((radius*radius)-((DOPS/2)*(DOPS/2)))*(start_y-end_y))/DOPS;
+}
+if(GJ>0) {
+centre_y = GI;
+} else {
+centre_y = dist_y + (sqrt((radius*radius)-((DOPS/2)*(DOPS/2)))*(start_x-end_x))/DOPS;
+}
+        // we now have our centre point for our circles (clockwise and counterclockwise)
         // now to generate the linear movements.
-
-for (m = 0; m <= AmountSteps; m++) { 
-
-        // by studyng circular theory, we can determine the points on the circle.
-        // (x*x) + (y*y) = (r*r)
-        // there are a max of four quadrants for a circle.
-        // it is likely our arc will only cross a few, and the ones which we do not cross will be imaginary.
-        // so, for starters, our step will be 1.
-        // Lets assume that we will be stepping with set values in the X direction, and generating the Y values.
-        // To do this, we will be using four different formulas, of which two will have a value (we will later choose which one we want)
         
-        // the y value when x is one and R is 10, and the center point is (10,10)
-        // transpose formula to give y=
-        // ((x-10)*(x-10)) + ((y-10)*(y-10)) = (r*r)
-        // (-9*-9) + ((y-10)*(y-10) = (10*10)
-        // (81) + (y-10)*(y-10) = 100
-        // (y-10)*(y-10) = 100 - 81
-        // (y-10)*(y-10) = 19
-        // sqrt(19) = (y-10)
-        // ± sqrt(19) + 10 = y [positive and negative values]
-        // so y ~= 10 ±4.358898943540674.
-        // so the coords would be (1, 14.358898943540674) and (1, 5.641101056459326)
-        
-        // so its basically
-        // (x-cx)^2 + (y-cy)^2 = r^2
-        // r^2 - (x-cx)^2 = (y-cy)^2
-        // sqrt(r^2 - (x-cx)^2) = (y-cy)
-        // sqrt(r^2 - (x-cx)^2) + cy = y
-        
-float resolved_x;
-if(start_x<end_x) {resolved_x = start_x+(m*resolution);}
-if(start_x>end_x) {resolved_x = start_x-(m*resolution);}
-
-//float next_value_pos = center_y_pos + sqrt((radius*radius)-((resolved_x-center_x_pos)*(resolved_x-center_x_pos)));
-//float next_value_neg = center_y_pos - sqrt((radius*radius)-((resolved_x-center_x_pos)*(resolved_x-center_x_pos)));
-float next_value_pos2 = center_y_neg + sqrt((radius*radius)-((resolved_x-center_x_pos)*(resolved_x-center_x_pos)));
-float next_value_neg2 = center_y_neg - sqrt((radius*radius)-((resolved_x-center_x_pos)*(resolved_x-center_x_pos)));
-float next_value_posx = center_y_pos + sqrt((radius*radius)-((resolved_x-center_x_neg)*(resolved_x-center_x_neg)));
-float next_value_negx = center_y_pos - sqrt((radius*radius)-((resolved_x-center_x_neg)*(resolved_x-center_x_neg)));
-//float next_value_pos2x = center_y_neg + sqrt((radius*radius)-((resolved_x-center_x_neg)*(resolved_x-center_x_neg)));
-//float next_value_neg2x = center_y_neg - sqrt((radius*radius)-((resolved_x-center_x_neg)*(resolved_x-center_x_neg)));
-
-        // now we have the new values ready to be put out.
-        
-if(gType == 2) {if(start_x<end_x) {fprintf(fp, "G01 X%.3f Y%.3f // G02 at line %d\n", resolved_x, next_value_posx, AmountSteps, l);};}
-if(gType == 2) {if(start_x>end_x) {fprintf(fp, "G01 X%.3f Y%.3f // G02 at line %d\n", resolved_x, next_value_negx, AmountSteps, l);};}
-if(gType == 3) {if(start_x>end_x) {fprintf(fp, "G01 X%.3f Y%.3f // G03 at line %d\n", resolved_x, next_value_pos2, AmountSteps, l);};}
-if(gType == 3) {if(start_x<end_x) {fprintf(fp, "G01 X%.3f Y%.3f // G03 at line %d\n", resolved_x, next_value_neg2, AmountSteps, l);};}
+int AmountSteps = find_LinearSteps(centre_x, centre_y, radius, rez);
+//for (m = 0; m <= AmountSteps; m++) { 
+//float centre_x = centre_x_neg;
+//float centre_y = centre_y_pos;
+printf("Test>%f\n",centre_y);
+for(m = -1000; m < 1000; m++) { //for all values of x
+float xval = sqrt((radius*radius)-((m-centre_x)*(m-centre_y))); //bottom
+float otherxval = 0-sqrt((radius*radius)-((m-centre_x)*(m-centre_y)));
+//printf("Test>%f\n",centre_y);
+//if(m < centre_x-radius) {
+//write_Out(m, line_y, l);
+//}
+//if((xval+centre_y < line_y)&&(m < centre_x)) {
+//write_Out(m, line_y, l);
+//}
+if((xval+centre_y > start_y)&&(m < centre_x)) { // where bottom arc + center < start_y
+write_Out(m, xval+centre_y, l, fp);
+}
+if (otherxval+centre_y < start_y){
+write_Out(m, otherxval+centre_y, l, fp);
+}
+if((xval+centre_y < start_y)&&(m > centre_x)) {
+write_Out(m, xval+centre_y, l, fp);
+}
+//if((xval+centre_y < line_y)&&(i > centre_x)) {
+//write_Out(m, line_y, l);
+//}
+//if(m > centre_x+radius) {
+//write_Out(m, line_y, l);
+//}
 }
 }
 
@@ -173,12 +208,20 @@ if (start_y < end_y) { y_positive = 4; } else { y_positive = 7; };
 return (x_positive+y_positive);
 }
 
-int do_AmountSteps(float start_x, float start_y, float end_x, float end_y, char rez) {
-int minsteps = 0;
+void write_Out(float GX, float GY, int l, FILE *fp) {
+fprintf(fp, "G01 X%.3f Y%.3f // G0? at line %d\n", GX, GY, l);
+}
+
+int find_LinearSteps(float centre_x, float centre_y, float radius, char rez) {
 if(!rez) {rez=1;}
-if ((end_x-start_x) > minsteps) {minsteps = (end_x-start_x);}
-if ((start_x-end_x) > minsteps) {minsteps = (start_x-end_x);}
-if ((end_y-start_y) > minsteps) {minsteps = (end_y-start_y);}
-if ((start_y-end_y) > minsteps) {minsteps = (start_y-end_y);}
-return minsteps*rez;
+float resolution = ((float)1/rez);
+int stepcounter = 0;
+int pyy;
+for(pyy = -1000; pyy < 1000; pyy++) {
+   if((sqrt((radius*radius)-((pyy-centre_x)*(pyy-centre_y)))) > 0) {
+   stepcounter++;
+   }
+   }
+   //printf("%d\n",stepcounter);
+return stepcounter;
 }
