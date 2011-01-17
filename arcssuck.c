@@ -3,13 +3,14 @@
 #include <string.h>
 #include <math.h>
 
-void G02_print(char casenumber, float start_x, float start_y, float radius, FILE *fp);
-void G03_print(char casenumber, float start_x, float start_y, float radius, FILE *fp);
+void G02_print(char casenumber, float start_x, float start_y, float radius, FILE *fp, int l);
+void G03_print(char casenumber, float start_x, float start_y, float radius, FILE *fp, int l);
 char do_Determine(float start_x, float start_y, float end_x, float end_y);
-void do_Calculate(char type, float start_x, float start_y, float end_x, float end_y, float radius, char rez, FILE *fp);
+void do_Calculate(char type, float start_x, float start_y, float end_x, float end_y, float radius, char rez, FILE *fp, int l);
 
 volatile float listarray[1000][2];
 int x_positive, y_positive;
+int l = 1;
 int rez, amt_steps, curstep, stepcalc, j, i, y_switch, x_direction, y_direction;
 //float start_x, start_y, end_x, end_y, radius
 float temp_x, temp_y, GX, GY;
@@ -32,7 +33,8 @@ int main ( void )
 				//fputs ( line, stdout ); /* write the line */
 				for (i = 0; line[i]; i++) {
 				//entire line is now in memory
-				
+				//reset variables
+				GCLen, XCLen, YCLen, RCLen = 0;
 					 if(line[i] == 'G' || line[i] == 'g') {
 					 //if a G is encountered, I want to count the amount of digits before a space.
 					 GFirst = i;
@@ -90,17 +92,20 @@ int main ( void )
       //now, if it is a G02 or G03, pass it to the converter.
       //otherwise, print it straight through and keep the values.
       if (GVal == 2 || GVal == 3 ) {
-      do_Calculate(GVal,XLast,YLast,XVal,YVal,RVal,1,fp);
+      do_Calculate(GVal,XLast,YLast,XVal,YVal,RVal,1,fp,l);
       XLast = XVal;
       YLast = YVal;
       }
-      else {
+      else
+      {
       printf("Type %d.\n\n", GVal);
       fprintf(fp, line);
-      XLast = XVal;
-      YLast = YVal;
+      if(XCLen) {XLast = XVal;}
+      if(YCLen) {YLast = YVal;}
       }
+      l++;
       }
+      
       }
       fclose (fp);
       fclose (file);
@@ -113,7 +118,7 @@ int main ( void )
 
 }
 
-void do_Calculate(char type, float start_x, float start_y, float end_x, float end_y, float radius, char rez, FILE *fp) {
+void do_Calculate(char type, float start_x, float start_y, float end_x, float end_y, float radius, char rez, FILE *fp, int l) {
 stepcalc = 100000;
 if ((end_x-start_x) < stepcalc) {
 stepcalc = (end_x-start_x);
@@ -134,8 +139,8 @@ listarray[i][0] = arc_number+1;
 listarray[i][1] = arc_value+1;
 }
 printf("Type %d.\n\n", type);
-if (type == 2) {G02_print(do_Determine(start_x, start_y, end_x, end_y), start_x, start_y, radius,fp);}
-if (type == 3) {G03_print(do_Determine(start_x, start_y, end_x, end_y), start_x, start_y, radius,fp);}
+if (type == 2) {G02_print(do_Determine(start_x, start_y, end_x, end_y), start_x, start_y, radius,fp, l);}
+if (type == 3) {G03_print(do_Determine(start_x, start_y, end_x, end_y), start_x, start_y, radius,fp, l);}
 }
 
 char do_Determine(float start_x, float start_y, float end_x, float end_y) {
@@ -144,7 +149,7 @@ if (start_y < end_y) { y_positive = 4; } else { y_positive = 7; };
 return (x_positive+y_positive);
 }
 
-void G03_print(char casenumber, float start_x, float start_y, float radius, FILE *fp) {
+void G03_print(char casenumber, float start_x, float start_y, float radius, FILE *fp, int l) {
 for (j = 0; listarray[j][0]; j++) {
 switch(casenumber) {
   case 5: // X pos, Y pos
@@ -167,11 +172,11 @@ switch(casenumber) {
     printf("screwed up\n");
   break;
   }
-  fprintf(fp, "G01 X%.3f Y%.3f //CON3\n",GX ,GY);
+  fprintf(fp, "G01 X%.3f Y%.3f //G03 at line %d\n",GX ,GY, l);
 }
 }
 
-void G02_print(char casenumber, float start_x, float start_y, float radius, FILE *fp) {
+void G02_print(char casenumber, float start_x, float start_y, float radius, FILE *fp, int l) {
     for (j = 0; listarray[j][0]; j++) {
 switch(casenumber) {
   case 5: // X pos, Y pos
@@ -194,6 +199,6 @@ switch(casenumber) {
     printf("screwed up\n");
   break;
   }
-   fprintf(fp, "G01 X%.3f Y%.3f //CON2\n",GX ,GY);
+   fprintf(fp, "G01 X%.3f Y%.3f //G02 at line %d\n",GX ,GY, l);
   }
   }
