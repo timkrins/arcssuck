@@ -33,7 +33,7 @@ int main ( void )
 				for (i = 0; line[i]; i++) {
 				//entire line is now in memory
 				
-					 if(line[i] == 'G') {
+					 if(line[i] == 'G' || line[i] == 'g') {
 					 //if a G is encountered, I want to count the amount of digits before a space.
 					 GFirst = i;
 					 for (j = 0; line[i+j] != ' '; j++) {
@@ -45,7 +45,7 @@ int main ( void )
 					 GVal = atoi(GString);
 					 }
 					 
-					 if(line[i] == 'X') {
+					 if(line[i] == 'X' || line[i] == 'x') {
 					 XFirst = i;
 					 for (j = 0; line[i+j] != ' '; j++) {
 					 XCLen = j;
@@ -56,7 +56,7 @@ int main ( void )
 					 XVal = atof(XString);
 					 }
 					 
-					 if(line[i] == 'Y') {
+					 if(line[i] == 'Y' || line[i] == 'y') {
 					 YFirst = i;
 					 for (j = 0; line[i+j] != ' '; j++) {
 					 YCLen = j;
@@ -68,7 +68,7 @@ int main ( void )
 					 }
 					 
 					 
-					 if(line[i] == 'R') {
+					 if(line[i] == 'R' || line[i] == 'r') {
 					 RFirst = i;
 					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {
 					 RCLen = j;
@@ -86,15 +86,15 @@ int main ( void )
 						 
          
       }
-      //printf("\nG(%d)%d X(%d)%d Y(%d)%d R(%d)%d. \nG=%d, X=%.3f, Y=%.3f, R=%.3f\n\n", GCLen, GFirst, XCLen, XFirst, YCLen, YFirst, RCLen, RFirst, GVal, XVal, YVal, RVal);
       printf("\nG=%d, X=%.3f, Y=%.3f, R=%.3f\n", GVal, XVal, YVal, RVal);
       //now, if it is a G02 or G03, pass it to the converter.
-      //otherwise, prnit it straight through.
-      //open file
+      //otherwise, print it straight through and keep the values.
       if (GVal == 2 || GVal == 3 ) {
       do_Calculate(GVal,XLast,YLast,XVal,YVal,RVal,1,fp);
+      XLast = XVal;
+      YLast = YVal;
       }
-      if(GVal == 1) {
+      else {
       printf("Type %d.\n\n", GVal);
       fprintf(fp, line);
       XLast = XVal;
@@ -179,15 +179,15 @@ switch(casenumber) {
     GY = (listarray[j][0]-1)+start_y;
   break;
   case 8: // X pos, Y neg
-     GX = (listarray[j][0]-1)+start_x;
+    GX = (listarray[j][0]-1)+start_x;
     GY = start_y-(listarray[j][1]-1);
   break;
   case 6: // X is negative, Y is positive
-        GX = listarray[amt_steps-j][0]-1;
+    GX = listarray[amt_steps-j][0]-1;
     GY = start_y+(listarray[j][1]-1);
   break;
   case 9: // X neg, Y neg
-        GX = start_x-(listarray[j][1]-1);
+    GX = start_x-(listarray[j][1]-1);
     GY = start_y-(listarray[j][0]-1);
   break;
   default:
