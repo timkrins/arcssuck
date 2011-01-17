@@ -9,6 +9,7 @@ char do_Determine(float start_x, float start_y, float end_x, float end_y);
 void do_Calculate(char typer, float start_x, float start_y, float end_x, float end_y, float radius, char rez, FILE *fp, int l);
 
 float listarray[1000][2];
+char filename[30];
 int x_positive, y_positive;
 int l = 1;
 int rez, amt_steps, curstep, stepcalc, y_switch, x_direction, y_direction;
@@ -19,15 +20,20 @@ int i, j, k, m, n, GCLen, XCLen, YCLen, RCLen, GFirst, XFirst, YFirst, RFirst, G
 char GString[10], XString[16], YString[16], RString[16];
 float XVal, YVal, RVal, XLast, YLast = (float)0;
 
-int main ( void )
+int main ( int argc, char *argv[] )
 {
-   static const char filename[] = "gcodes.txt";
-   FILE *file = fopen ( filename, "r" );
+if (!argv[1]) {
+argv[1] = "gcodes.txt";
+}
+FILE *file = fopen ( argv[1], "r" );
    if (file)
    {
    FILE *fp;
       if (fp = fopen("converted.txt", "w")) {
       char line [ 128 ];
+      fprintf(fp, "//ArcsSuck 0.1 by Tim K. Output of file \"");
+      fprintf(fp, argv[1]);
+      fprintf(fp, "\"\n\n");
       while ( fgets(line, sizeof line, file)) /* read a line */
       {
 				//fputs ( line, stdout ); /* write the line */
@@ -114,7 +120,9 @@ int main ( void )
    }
    else
    {
-      perror (filename); /* why didn't the file open? */
+      //perror ("error"); /* why didn't the file open? */
+      printf("No file could be loaded. Drag or specify a file to process.");
+      getchar();
    }
    return 0;
 
@@ -204,6 +212,10 @@ switch(casenumber) {
     printf("screwed up\n");
   break;
   }
-   fprintf(fp, "G01 X%.3f Y%.3f //G02 at line %d\n",GX ,GY, l);
+  fprintf(fp, "G01 ");
+  // do not print imaginary characters. formula needs to be resolved.
+  if(GX > -100000) {fprintf(fp, "X%.3f ",GX);};
+  if(GY > -100000) {fprintf(fp, "Y%.3f ",GY);};
+  fprintf(fp, "//G02 at line %d\n", l);
   }
   }

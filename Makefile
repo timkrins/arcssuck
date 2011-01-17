@@ -1,4 +1,4 @@
-PROGRAM = generate
+PROGRAM = arcssuck
 
 SOURCES = $(PROGRAM).c
 CC = $(ARCH)gcc
