@@ -1,0 +1,94 @@
+//ArcsSuck 0.1 by Tim K. Output of file "challenge00.NC"
+
+G00 Z10
+G00 X20.000 Y0.000
+G01 Z0
+G01 X80
+G01 X80.000 Y0.000 // G02 at line 20
+G01 X81.000 Y-0.025 // G02 at line 20
+G01 X82.000 Y-0.100 // G02 at line 20
+G01 X83.000 Y-0.226 // G02 at line 20
+G01 X84.000 Y-0.404 // G02 at line 20
+G01 X85.000 Y-0.635 // G02 at line 20
+G01 X86.000 Y-0.921 // G02 at line 20
+G01 X87.000 Y-1.265 // G02 at line 20
+G01 X88.000 Y-1.670 // G02 at line 20
+G01 X89.000 Y-2.139 // G02 at line 20
+G01 X90.000 Y-2.679 // G02 at line 20
+G01 X91.000 Y-3.297 // G02 at line 20
+G01 X92.000 Y-4.000 // G02 at line 20
+G01 X93.000 Y-4.801 // G02 at line 20
+G01 X94.000 Y-5.717 // G02 at line 20
+G01 X95.000 Y-6.771 // G02 at line 20
+G01 X96.000 Y-8.000 // G02 at line 20
+G01 X97.000 Y-9.464 // G02 at line 20
+G01 X98.000 Y-11.282 // G02 at line 20
+G01 X99.000 Y-13.755 // G02 at line 20
+G01 X100.000 Y-20.000 // G02 at line 20
+G01 X100 Y-80
+G01 X100.000 Y-80.000 // G02 at line 20
+G01 X99.000 Y-86.245 // G02 at line 20
+G01 X98.000 Y-88.718 // G02 at line 20
+G01 X97.000 Y-90.536 // G02 at line 20
+G01 X96.000 Y-92.000 // G02 at line 20
+G01 X95.000 Y-93.229 // G02 at line 20
+G01 X94.000 Y-94.283 // G02 at line 20
+G01 X93.000 Y-95.199 // G02 at line 20
+G01 X92.000 Y-96.000 // G02 at line 20
+G01 X91.000 Y-96.703 // G02 at line 20
+G01 X90.000 Y-97.321 // G02 at line 20
+G01 X89.000 Y-97.861 // G02 at line 20
+G01 X88.000 Y-98.330 // G02 at line 20
+G01 X87.000 Y-98.735 // G02 at line 20
+G01 X86.000 Y-99.079 // G02 at line 20
+G01 X85.000 Y-99.365 // G02 at line 20
+G01 X84.000 Y-99.596 // G02 at line 20
+G01 X83.000 Y-99.774 // G02 at line 20
+G01 X82.000 Y-99.900 // G02 at line 20
+G01 X81.000 Y-99.975 // G02 at line 20
+G01 X80.000 Y-100.000 // G02 at line 20
+G01 x20 Y-100
+G01 X20.000 Y-100.000 // G02 at line 20
+G01 X19.000 Y-99.975 // G02 at line 20
+G01 X18.000 Y-99.900 // G02 at line 20
+G01 X17.000 Y-99.774 // G02 at line 20
+G01 X16.000 Y-99.596 // G02 at line 20
+G01 X15.000 Y-99.365 // G02 at line 20
+G01 X14.000 Y-99.079 // G02 at line 20
+G01 X13.000 Y-98.735 // G02 at line 20
+G01 X12.000 Y-98.330 // G02 at line 20
+G01 X11.000 Y-97.861 // G02 at line 20
+G01 X10.000 Y-97.321 // G02 at line 20
+G01 X9.000 Y-96.703 // G02 at line 20
+G01 X8.000 Y-96.000 // G02 at line 20
+G01 X7.000 Y-95.199 // G02 at line 20
+G01 X6.000 Y-94.283 // G02 at line 20
+G01 X5.000 Y-93.229 // G02 at line 20
+G01 X4.000 Y-92.000 // G02 at line 20
+G01 X3.000 Y-90.536 // G02 at line 20
+G01 X2.000 Y-88.718 // G02 at line 20
+G01 X1.000 Y-86.245 // G02 at line 20
+G01 X0.000 Y-80.000 // G02 at line 20
+G01 X0 y-20
+G01 X0.000 Y-20.000 // G02 at line 20
+G01 X1.000 Y-13.755 // G02 at line 20
+G01 X2.000 Y-11.282 // G02 at line 20
+G01 X3.000 Y-9.464 // G02 at line 20
+G01 X4.000 Y-8.000 // G02 at line 20
+G01 X5.000 Y-6.771 // G02 at line 20
+G01 X6.000 Y-5.717 // G02 at line 20
+G01 X7.000 Y-4.801 // G02 at line 20
+G01 X8.000 Y-4.000 // G02 at line 20
+G01 X9.000 Y-3.297 // G02 at line 20
+G01 X10.000 Y-2.679 // G02 at line 20
+G01 X11.000 Y-2.139 // G02 at line 20
+G01 X12.000 Y-1.670 // G02 at line 20
+G01 X13.000 Y-1.265 // G02 at line 20
+G01 X14.000 Y-0.921 // G02 at line 20
+G01 X15.000 Y-0.635 // G02 at line 20
+G01 X16.000 Y-0.404 // G02 at line 20
+G01 X17.000 Y-0.226 // G02 at line 20
+G01 X18.000 Y-0.100 // G02 at line 20
+G01 X19.000 Y-0.025 // G02 at line 20
+G01 X20.000 Y0.000 // G02 at line 20
+G00 Z10
