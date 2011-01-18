@@ -118,32 +118,21 @@ FILE *file = fopen ( argv[1], "r" );
 void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, float GI, float GJ, char rez, FILE *fp, int l) {
 float resolution = ((float)1/rez);
 
-//##################### START REDO ################################
-				// I am passed gType, (Start X, Start Y), (End X, End Y), radius, resolution.
-				// The important aspects are StartX StartY EndX EndY Radius.
-				// According to the circle, we are given 2 points on an edge, and a radius.
-				// From this, we can determine the values we need.
-				// First, seeing as we have no I or J coordinates, we need to determine the centre point of the circle.
-				// We can do this by using 
-				// q = sqrt((x2-x1)^2 + (y2-y1)^2)
-				// x3 = (x1+x2)/2
-				// y3 = (y1+y2)/2
-				// x = [x3] ± sqrt(r^2-([q]/2)^2)*([y1]-[y2])/q
-        // y = [y3] ± sqrt(r^2-([q]/2)^2)*([x2]-[x1])/q  
-        // where (x,y) is the centre point. q is the distance between the two points. x1,y1 is the first point, x2,y2 is the second point. x3 and y3 are the linear distances between the start and end.
+
         float centre_x;
         float centre_y;
         //float centre_x_neg;
         //float centre_y_neg;
         centre_x = GI;
-centre_y = GJ;
-        float RDOPS = sqrt(((centre_x+start_x)-(start_x))*((centre_x+start_x)-(start_x))+((centre_y+start_y)-(start_y))*((centre_y+start_y)-(start_y)));
+        centre_y = GJ;
+        printf("XCentre%f, YCentre%f, XStart%f, YStart%f\n", centre_x, centre_y, start_x, start_y);
+    float RDOPS = sqrt((((centre_x)-(start_x))*((centre_x)-(start_x)))+(((centre_y)-(start_y))*((centre_y+start_y)-(start_y))));
             //float RDOPS = sqrt(((centre_x-start_x)*(centre_x-start_x))+((centre_y-start_y)*(centre_y-start_y)));
 float DOPS = sqrt(((end_x-start_x)*(end_x-start_x))+((end_y-start_y)*(end_y-start_y)));
 float dist_x = (start_x+end_x)/2;
 float dist_y = (start_y+end_y)/2;
-printf("RDOPS-err-\n");
-printf("RDOPS-%f-\n", RDOPS);
+//printf("RDOPS-err-\n");
+printf("Radius <%f>\n", RDOPS);
 //printf("RDOPS-%f-\n", DOPS);
 
         // Find first point on line so I can calculate the radius.
