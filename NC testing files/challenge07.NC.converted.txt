@@ -4,6 +4,60 @@ G00 Z10
 G00 X20.000 Y0.000
 G01 Z0
 //G03 (X20.0 Y0.0) X0.0 Y0.0 R0.0 I5.0 J5.0 
-//Test3>rad0.00
 //Test3>rad15.81
+//sectionvalue(-10.78)
+G01 X4.000 Y-10.780 // G03 at line 4, Section1.
+//sectionvalue(-10.68)
+G01 X3.000 Y-10.684 // G03 at line 4, Section1.
+//sectionvalue(-10.52)
+G01 X2.000 Y-10.524 // G03 at line 4, Section1.
+//sectionvalue(-10.30)
+G01 X1.000 Y-10.297 // G03 at line 4, Section1.
+//sectionvalue(-10.00)
+G01 X0.000 Y-10.000 // G03 at line 4, Section1.
+//sectionvalue(-9.63)
+G01 X-1.000 Y-9.629 // G03 at line 4, Section1.
+//sectionvalue(-9.18)
+G01 X-2.000 Y-9.177 // G03 at line 4, Section1.
+//sectionvalue(-8.64)
+G01 X-3.000 Y-8.638 // G03 at line 4, Section1.
+//sectionvalue(-8.00)
+G01 X-4.000 Y-8.000 // G03 at line 4, Section1.
+//sectionvalue(-7.25)
+G01 X-5.000 Y-7.247 // G03 at line 4, Section1.
+//sectionvalue(-6.36)
+G01 X-6.000 Y-6.358 // G03 at line 4, Section1.
+//sectionvalue(-5.30)
+G01 X-7.000 Y-5.296 // G03 at line 4, Section1.
+//sectionvalue(-4.00)
+G01 X-8.000 Y-4.000 // G03 at line 4, Section1.
+//sectionvalue(-2.35)
+G01 X-9.000 Y-2.348 // G03 at line 4, Section1.
+//sectionvalue(0.00)
+G01 X-10.000 Y0.000 // G03 at line 4, Section1.
+G01 X-9.000 Y12.348 // G03 at line 4, Section2.
+G01 X-8.000 Y14.000 // G03 at line 4, Section2.
+G01 X-7.000 Y15.296 // G03 at line 4, Section2.
+G01 X-6.000 Y16.358 // G03 at line 4, Section2.
+G01 X-5.000 Y17.247 // G03 at line 4, Section2.
+G01 X-4.000 Y18.000 // G03 at line 4, Section2.
+G01 X-3.000 Y18.638 // G03 at line 4, Section2.
+G01 X-2.000 Y19.177 // G03 at line 4, Section2.
+G01 X-1.000 Y19.629 // G03 at line 4, Section2.
+G01 X20.000 Y0.000 // G03 at line 4, Section4.
+G01 X19.000 Y-2.348 // G03 at line 4, Section4.
+G01 X18.000 Y-4.000 // G03 at line 4, Section4.
+G01 X17.000 Y-5.296 // G03 at line 4, Section4.
+G01 X16.000 Y-6.358 // G03 at line 4, Section4.
+G01 X15.000 Y-7.247 // G03 at line 4, Section4.
+G01 X14.000 Y-8.000 // G03 at line 4, Section4.
+G01 X13.000 Y-8.638 // G03 at line 4, Section4.
+G01 X12.000 Y-9.177 // G03 at line 4, Section4.
+G01 X11.000 Y-9.629 // G03 at line 4, Section4.
+G01 X10.000 Y-10.000 // G03 at line 4, Section4.
+G01 X9.000 Y-10.297 // G03 at line 4, Section4.
+G01 X8.000 Y-10.524 // G03 at line 4, Section4.
+G01 X7.000 Y-10.684 // G03 at line 4, Section4.
+G01 X6.000 Y-10.780 // G03 at line 4, Section4.
+G01 X0.0 Y0.0 // End of line
 G00 Z10
