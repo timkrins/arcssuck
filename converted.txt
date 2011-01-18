@@ -5,18 +5,6 @@ G01 Z0
 G01 X30
 //G02 (X30.0 Y0.0) X40.0 Y0.0 R0.0 I35.0 J10.0 
 //Test3>rad11.18
-//sectionvalue(0.57)
-G01 X29.000 Y0.566 // G02 at line 4, Section1.
-//sectionvalue(1.28)
-G01 X28.000 Y1.282 // G02 at line 4, Section1.
-//sectionvalue(2.19)
-G01 X27.000 Y2.190 // G02 at line 4, Section1.
-//sectionvalue(3.37)
-G01 X26.000 Y3.367 // G02 at line 4, Section1.
-//sectionvalue(5.00)
-G01 X25.000 Y5.000 // G02 at line 4, Section1.
-//sectionvalue(8.00)
-G01 X24.000 Y8.000 // G02 at line 4, Section1.
 G01 X24.000 Y12.000 // G02 at line 4, Section2.
 G01 X25.000 Y15.000 // G02 at line 4, Section2.
 G01 X26.000 Y16.633 // G02 at line 4, Section2.

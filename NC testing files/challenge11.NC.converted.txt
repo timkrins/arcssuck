@@ -5,13 +5,9 @@ G01 Z0
 G01 X80
 //G02 (X80.0 Y0.0) X100.0 Y-20.0 R0.0 I90.0 J-10.0 
 //Test3>rad14.14
-//sectionvalue(-18.89)
 G01 X79.000 Y-18.888 // G02 at line 4, Section1.
-//sectionvalue(-17.48)
 G01 X78.000 Y-17.483 // G02 at line 4, Section1.
-//sectionvalue(-15.57)
 G01 X77.000 Y-15.568 // G02 at line 4, Section1.
-//sectionvalue(-12.00)
 G01 X76.000 Y-12.000 // G02 at line 4, Section1.
 G01 X76.000 Y-8.000 // G02 at line 4, Section2.
 G01 X77.000 Y-4.432 // G02 at line 4, Section2.
@@ -27,19 +23,33 @@ G01 X86.000 Y3.565 // G02 at line 4, Section2.
 G01 X87.000 Y3.820 // G02 at line 4, Section2.
 G01 X88.000 Y4.000 // G02 at line 4, Section2.
 G01 X89.000 Y4.107 // G02 at line 4, Section2.
+//start(80.00)circ(90.00)sectionvalue(-24.11)jval(-10.00)
 G01 X91.000 Y4.107 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-24.00)jval(-10.00)
 G01 X92.000 Y4.000 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-23.82)jval(-10.00)
 G01 X93.000 Y3.820 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-23.56)jval(-10.00)
 G01 X94.000 Y3.565 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-23.23)jval(-10.00)
 G01 X95.000 Y3.229 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-22.81)jval(-10.00)
 G01 X96.000 Y2.806 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-22.29)jval(-10.00)
 G01 X97.000 Y2.288 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-21.66)jval(-10.00)
 G01 X98.000 Y1.662 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-20.91)jval(-10.00)
 G01 X99.000 Y0.909 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-20.00)jval(-10.00)
 G01 X100.000 Y-0.000 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-18.89)jval(-10.00)
 G01 X101.000 Y-1.112 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-17.48)jval(-10.00)
 G01 X102.000 Y-2.517 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-15.57)jval(-10.00)
 G01 X103.000 Y-4.432 // G02 at line 4, Section3.
+//start(80.00)circ(90.00)sectionvalue(-12.00)jval(-10.00)
 G01 X104.000 Y-8.000 // G02 at line 4, Section3.
 G01 X104.000 Y-12.000 // G02 at line 4, Section4.
 G01 X103.000 Y-15.568 // G02 at line 4, Section4.

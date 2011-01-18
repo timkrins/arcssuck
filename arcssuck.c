@@ -37,7 +37,7 @@ FILE *file = fopen ( argv[1], "r" );
       
       while ( fgets(line, sizeof line, file)) {
 				//GCLen, XCLen, YCLen, RCLen, ICLen, JCLen, GVal, IVal, JVal, RVal = 0;
-				memset(RString, 0, 16);memset(IString, 0, 16);memset(JString, 0, 16);
+				memset(RString, 0, 16);memset(IString, 0, 16);memset(JString, 0, 16);memset(GString, 0, 10);memset(XString, 0, 16);memset(YString, 0, 16);
 				GCLen = 0;XCLen = 0;YCLen = 0;RCLen = 0;ICLen = 0;JCLen = 0;GVal = 0;RVal = 0;JVal = 0;IVal = 0;
 				
 				for (i = 0; line[i]; i++) {
@@ -50,7 +50,7 @@ FILE *file = fopen ( argv[1], "r" );
 				// printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
 				
       }
-      printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
+      //printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
       if (GVal == 2 || GVal == 3 ) {
       fprintf(fp, "//G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
       do_CalculateAndPrint(GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal,1,fp,l);
@@ -61,8 +61,8 @@ FILE *file = fopen ( argv[1], "r" );
       else
       {
       fprintf(fp, line);
-      if(XCLen) {XLast = XVal;}
-      if(YCLen) {YLast = YVal;}
+      XLast = XVal;
+      YLast = YVal;
       }
       l++;
       }
@@ -98,8 +98,13 @@ float resolution = ((float)1/rez);
 //fprintf(fp, "//Test3>rad%.2f\n",radius);
 //printf("Radius <%f>\n", RDOPS);
 if(radius > 0) {
-circle_x = start_x;
-circle_y = end_y;
+//jval shouldnt be zero
+if(start_x>end_x) {circle_x = end_x;fprintf(fp, "//Some days\n");};
+if(start_x<end_x) {circle_x = start_x;fprintf(fp, "//I like to\n");};
+if(start_y<end_y) {circle_y = start_y;fprintf(fp, "//Change what\n");};
+if(start_y>end_y) {circle_y = end_y;fprintf(fp, "//Happens\n");};
+
+//circle_y = end_y;
 } else {
 radius = RDOPS;
 };
@@ -112,29 +117,16 @@ int fourthquadcount = 0;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 int fq1=0, fq2=0, fq3=0, fq4=0;
 
 //for(fq1 = -200; fq1 < circle_x; fq1++) { // seems to count back
 
 for(fq1 = circle_x; fq1 > (circle_x-radius); fq1--) {
+////////////////////////////////////////hhhhhhhhhhhhhhhhhhhhh//////////////
 m = fq1;
 //if((section1value>start_y)&&(fq1 < circle_x)&&((fq1<start_x)||(fq1>end_x))) {
-if((fq1 < circle_x)&&((fq1<start_x)||(fq1>end_x))) {
+if((fq1 < circle_x)&&(start_x<circle_x)&&((fq1<start_x)||(fq1>end_x))) {
 y_val = section1value;
-fprintf(fp, "//sectionvalue(%.2f)\n",section1value);
 write_Out(m, y_val, l, fp, gType, 1);    //write_Out(xval, yval, l, fp)
 }
 }
@@ -143,7 +135,7 @@ for(fq2 = circle_x-radius+1; fq2 < circle_x; fq2++) { // seems to be counting in
 //for(fq2 = circle_x; fq2 > -200; fq2--) {
 m = fq2;
 //if((section2value>circle_y)&&(fq2 < circle_x)&&((fq2<end_x)||(fq2>start_x))) {
-if((fq2 < circle_x)&&((fq2<end_x)||(fq2>start_x))) {
+if((fq2 < circle_x)&&(start_x<circle_x)&&((fq2<end_x)||(fq2>start_x))) {
 y_val = section2value;
 write_Out(m, y_val, l, fp, gType, 2);    //write_Out(xval, yval, l, fp)
 }
@@ -154,6 +146,8 @@ m = fq3;
 //if((section2value>circle_y)&&(fq3 > circle_x)&&((fq3<end_x)||(fq3>start_x))) {
 if((fq3 > circle_x)&&((fq3<end_x)||(fq3>start_x))) {
 y_val = section2value;
+fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section1value, circle_y);
+
 write_Out(m, y_val, l, fp, gType, 3);    //write_Out(xval, yval, l, fp)
 }
 }

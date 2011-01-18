@@ -5,51 +5,33 @@ G00 X0.000 Y0.000
 G01 Z0
 //G03 (X0.0 Y0.0) X0.0 Y0.0 R10.0 I0.0 J5.0 
 //Test3>rad10.00
-//sectionvalue(-9.95)
-G01 X-1.000 Y-9.950 // G03 at line 4, Section1.
-//sectionvalue(-9.80)
-G01 X-2.000 Y-9.798 // G03 at line 4, Section1.
-//sectionvalue(-9.54)
-G01 X-3.000 Y-9.539 // G03 at line 4, Section1.
-//sectionvalue(-9.17)
-G01 X-4.000 Y-9.165 // G03 at line 4, Section1.
-//sectionvalue(-8.66)
-G01 X-5.000 Y-8.660 // G03 at line 4, Section1.
-//sectionvalue(-8.00)
-G01 X-6.000 Y-8.000 // G03 at line 4, Section1.
-//sectionvalue(-7.14)
-G01 X-7.000 Y-7.141 // G03 at line 4, Section1.
-//sectionvalue(-6.00)
-G01 X-8.000 Y-6.000 // G03 at line 4, Section1.
-//sectionvalue(-4.36)
-G01 X-9.000 Y-4.359 // G03 at line 4, Section1.
-G01 X-9.000 Y4.359 // G03 at line 4, Section2.
-G01 X-8.000 Y6.000 // G03 at line 4, Section2.
-G01 X-7.000 Y7.141 // G03 at line 4, Section2.
-G01 X-6.000 Y8.000 // G03 at line 4, Section2.
-G01 X-5.000 Y8.660 // G03 at line 4, Section2.
-G01 X-4.000 Y9.165 // G03 at line 4, Section2.
-G01 X-3.000 Y9.539 // G03 at line 4, Section2.
-G01 X-2.000 Y9.798 // G03 at line 4, Section2.
-G01 X-1.000 Y9.950 // G03 at line 4, Section2.
-G01 X1.000 Y9.950 // G03 at line 4, Section3.
-G01 X2.000 Y9.798 // G03 at line 4, Section3.
-G01 X3.000 Y9.539 // G03 at line 4, Section3.
-G01 X4.000 Y9.165 // G03 at line 4, Section3.
-G01 X5.000 Y8.660 // G03 at line 4, Section3.
-G01 X6.000 Y8.000 // G03 at line 4, Section3.
-G01 X7.000 Y7.141 // G03 at line 4, Section3.
-G01 X8.000 Y6.000 // G03 at line 4, Section3.
-G01 X9.000 Y4.359 // G03 at line 4, Section3.
-G01 X10.000 Y0.000 // G03 at line 4, Section4.
-G01 X9.000 Y-4.359 // G03 at line 4, Section4.
-G01 X8.000 Y-6.000 // G03 at line 4, Section4.
-G01 X7.000 Y-7.141 // G03 at line 4, Section4.
-G01 X6.000 Y-8.000 // G03 at line 4, Section4.
-G01 X5.000 Y-8.660 // G03 at line 4, Section4.
-G01 X4.000 Y-9.165 // G03 at line 4, Section4.
-G01 X3.000 Y-9.539 // G03 at line 4, Section4.
-G01 X2.000 Y-9.798 // G03 at line 4, Section4.
-G01 X1.000 Y-9.950 // G03 at line 4, Section4.
+//start(0.00)circ(0.00)sectionvalue(-4.95)jval(5.00)
+G01 X1.000 Y14.950 // G03 at line 4, Section3.
+//start(0.00)circ(0.00)sectionvalue(-4.80)jval(5.00)
+G01 X2.000 Y14.798 // G03 at line 4, Section3.
+//start(0.00)circ(0.00)sectionvalue(-4.54)jval(5.00)
+G01 X3.000 Y14.539 // G03 at line 4, Section3.
+//start(0.00)circ(0.00)sectionvalue(-4.17)jval(5.00)
+G01 X4.000 Y14.165 // G03 at line 4, Section3.
+//start(0.00)circ(0.00)sectionvalue(-3.66)jval(5.00)
+G01 X5.000 Y13.660 // G03 at line 4, Section3.
+//start(0.00)circ(0.00)sectionvalue(-3.00)jval(5.00)
+G01 X6.000 Y13.000 // G03 at line 4, Section3.
+//start(0.00)circ(0.00)sectionvalue(-2.14)jval(5.00)
+G01 X7.000 Y12.141 // G03 at line 4, Section3.
+//start(0.00)circ(0.00)sectionvalue(-1.00)jval(5.00)
+G01 X8.000 Y11.000 // G03 at line 4, Section3.
+//start(0.00)circ(0.00)sectionvalue(0.64)jval(5.00)
+G01 X9.000 Y9.359 // G03 at line 4, Section3.
+G01 X10.000 Y5.000 // G03 at line 4, Section4.
+G01 X9.000 Y0.641 // G03 at line 4, Section4.
+G01 X8.000 Y-1.000 // G03 at line 4, Section4.
+G01 X7.000 Y-2.141 // G03 at line 4, Section4.
+G01 X6.000 Y-3.000 // G03 at line 4, Section4.
+G01 X5.000 Y-3.660 // G03 at line 4, Section4.
+G01 X4.000 Y-4.165 // G03 at line 4, Section4.
+G01 X3.000 Y-4.539 // G03 at line 4, Section4.
+G01 X2.000 Y-4.798 // G03 at line 4, Section4.
+G01 X1.000 Y-4.950 // G03 at line 4, Section4.
 G01 X0.0 Y0.0 // End of line
 G00 Z10
