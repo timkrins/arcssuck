@@ -1,0 +1,12 @@
+//ArcsSuck 0.1 by Tim K. Output of file "challenge11.NC"
+
+G00 Z10 X0 Y0
+G01 Z0
+G01 X80
+//G02 (X80.0 Y0.0) X100.0 Y-20.0 R0.0 I90.0 J-10.0 
+//Test3>rad0.00
+//Test3>rad14.14
+G01 y-40
+g01 x0
+g01 y0
+G00 Z10

@@ -4,71 +4,19 @@ G00 Z10
 G00 X20.000 Y0.000
 G01 Z0
 G01 X80
-G01 X0.000 Y80.000 // G02 at line 5
-G01 X1.000 Y79.994 // G02 at line 5
-G01 X2.000 Y79.975 // G02 at line 5
-G01 X3.000 Y79.944 // G02 at line 5
-G01 X4.000 Y79.900 // G02 at line 5
-G01 X5.000 Y79.844 // G02 at line 5
-G01 X6.000 Y79.775 // G02 at line 5
-G01 X7.000 Y79.693 // G02 at line 5
-G01 X8.000 Y79.599 // G02 at line 5
-G01 X9.000 Y79.492 // G02 at line 5
-G01 X10.000 Y79.373 // G02 at line 5
-G01 X11.000 Y79.240 // G02 at line 5
-G01 X12.000 Y79.095 // G02 at line 5
-G01 X13.000 Y78.937 // G02 at line 5
-G01 X14.000 Y78.765 // G02 at line 5
-G01 X15.000 Y78.581 // G02 at line 5
-G01 X16.000 Y78.384 // G02 at line 5
-G01 X17.000 Y78.173 // G02 at line 5
-G01 X18.000 Y77.949 // G02 at line 5
-G01 X19.000 Y77.711 // G02 at line 5
-G01 X20.000 Y77.460 // G02 at line 5
-G01 X21.000 Y77.195 // G02 at line 5
-G01 X22.000 Y76.916 // G02 at line 5
-G01 X23.000 Y76.622 // G02 at line 5
-G01 X24.000 Y76.315 // G02 at line 5
-G01 X25.000 Y75.993 // G02 at line 5
-G01 X26.000 Y75.657 // G02 at line 5
-G01 X27.000 Y75.306 // G02 at line 5
-G01 X28.000 Y74.940 // G02 at line 5
-G01 X29.000 Y74.559 // G02 at line 5
-G01 X30.000 Y74.162 // G02 at line 5
+//G02 (X80.0 Y0.0) X100.0 Y-20.0 R40.0 I0.0 J0.0 
+//Test3>rad40.00
+//Test3>rad40.00
 G01 X100 Y-80
-G01 X0.000 Y100.000 // G02 at line 7
-G01 X1.000 Y99.995 // G02 at line 7
-G01 X2.000 Y99.980 // G02 at line 7
-G01 X3.000 Y99.955 // G02 at line 7
-G01 X4.000 Y99.920 // G02 at line 7
-G01 X5.000 Y99.875 // G02 at line 7
-G01 X6.000 Y99.820 // G02 at line 7
-G01 X7.000 Y99.755 // G02 at line 7
-G01 X8.000 Y99.679 // G02 at line 7
-G01 X9.000 Y99.594 // G02 at line 7
-G01 X10.000 Y99.499 // G02 at line 7
-G01 X11.000 Y99.393 // G02 at line 7
-G01 X12.000 Y99.277 // G02 at line 7
-G01 X13.000 Y99.151 // G02 at line 7
-G01 X14.000 Y99.015 // G02 at line 7
-G01 X15.000 Y98.869 // G02 at line 7
-G01 X16.000 Y98.712 // G02 at line 7
-G01 X17.000 Y98.544 // G02 at line 7
-G01 X18.000 Y98.367 // G02 at line 7
-G01 X19.000 Y98.178 // G02 at line 7
-G01 X20.000 Y97.980 // G02 at line 7
-G01 X21.000 Y97.770 // G02 at line 7
-G01 X22.000 Y97.550 // G02 at line 7
-G01 X23.000 Y97.319 // G02 at line 7
-G01 X24.000 Y97.077 // G02 at line 7
-G01 X25.000 Y96.825 // G02 at line 7
-G01 X26.000 Y96.561 // G02 at line 7
-G01 X27.000 Y96.286 // G02 at line 7
-G01 X28.000 Y96.000 // G02 at line 7
-G01 X29.000 Y95.703 // G02 at line 7
-G01 X30.000 Y95.394 // G02 at line 7
+//G02 (X100.0 Y-80.0) X80.0 Y-100.0 R40.0 I0.0 J0.0 
+//Test3>rad40.00
+//Test3>rad40.00
 G01 x20 Y-100
-G01 X0.000 Y20.000 // G02 at line 9
+//G02 (X20.0 Y-100.0) X0.0 Y-80.0 R40.0 I0.0 J0.0 
+//Test3>rad40.00
+//Test3>rad40.00
 G01 X0 y-20
-G01 X0.000 Y0.000 // G02 at line 11
+//G02 (X0.0 Y-20.0) X20.0 Y0.0 R40.0 I0.0 J0.0 
+//Test3>rad40.00
+//Test3>rad40.00
 G00 Z10

@@ -128,27 +128,43 @@ if((section1value>circle_y)&&(m > circle_x)&&(m<start_x)&&(m>end_x)) {fourthquad
 
 }
 // Test>7,11,11,7
-fprintf(fp, "////TestFP>%d,%d,%d,%d\n",firstquadcount, secondquadcount, thirdquadcount, fourthquadcount);
+
+//fprintf(fp, "////TestFP>%d,%d,%d,%d\n",firstquadcount, secondquadcount, thirdquadcount, fourthquadcount);
+
+// Lets do it a different way.
+// Each quadrant is radius wide. which is what I should have done in the first place.
+
 int fq1, fq2, fq3, fq4;
-for(fq1 = 0; fq1 < firstquadcount; fq1++) {
-m = (start_x-fq1);
+for(fq1 = -200; fq1 < circle_x; fq1++) {
+if((section1value>start_y)&&(fq1 < circle_x)&&(fq1<start_x)&&(fq1>end_x)) {
+m = fq1;
 y_val = section1value;
-write_Out(m, y_val, l, fp, gType);            //write_Out(xval, yval, l, fp)
+write_Out(m, y_val, l, fp, gType);    //write_Out(xval, yval, l, fp)
 }
-for(fq2 = secondquadcount; fq2 > 0; fq2--) {
-m = (circle_x-fq2);
+}
+
+for(fq2 = -200; fq2 < circle_x; fq2++) {
+if((section2value>circle_y)&&(fq2 < circle_x)&&(fq2<end_x)&&(fq2>start_x)) {
+m = fq2;
 y_val = section2value;
-write_Out(m, y_val, l, fp, gType);            //write_Out(xval, yval, l, fp)
+write_Out(m, y_val, l, fp, gType);    //write_Out(xval, yval, l, fp)
 }
-for(fq3 = 0; fq3 <= thirdquadcount; fq3++) {
-m = (circle_x+fq3);
+}
+
+for(fq3 = circle_x; fq3 < 200; fq3++) {
+if((section2value>circle_y)&&(fq3 > circle_x)&&(fq3<end_x)&&(fq3>start_x)) {
+m = fq3;
 y_val = section2value;
-write_Out(m, y_val, l, fp, gType);            //write_Out(xval, yval, l, fp)
+write_Out(m, y_val, l, fp, gType);    //write_Out(xval, yval, l, fp)
 }
-for(fq4 = fourthquadcount-1; fq4 > 0; fq4--) {
-m = (end_x+fq4);
+}
+
+for(fq4 = circle_x; fq4 < 200; fq4++) {
+if((section1value>start_y)&&(fq4 > circle_x)&&(fq4<start_x)&&(fq4>end_x)) {
+m = fq4;
 y_val = section1value;
-write_Out(m, y_val, l, fp, gType);            //write_Out(xval, yval, l, fp)
+write_Out(m, y_val, l, fp, gType);    //write_Out(xval, yval, l, fp)
+}
 }
 }
 
