@@ -99,10 +99,11 @@ float resolution = ((float)1/rez);
 //printf("Radius <%f>\n", RDOPS);
 if(radius > 0) {
 //jval shouldnt be zero
-if(start_x>end_x) {circle_x = end_x;fprintf(fp, "//Some days\n");};
-if(start_x<end_x) {circle_x = start_x;fprintf(fp, "//I like to\n");};
-if(start_y<end_y) {circle_y = start_y;fprintf(fp, "//Change what\n");};
-if(start_y>end_y) {circle_y = end_y;fprintf(fp, "//Happens\n");};
+if(start_x>end_x) {circle_x = end_x;fprintf(fp, "//startx(%.2f)endx(%.2f). circlex has been set to endx\n",start_x,end_x);};
+if(start_x<end_x) {circle_x = start_x;fprintf(fp, "//startx(%.2f)endx(%.2f). circlex has been set to startx\n",start_x,end_x);};
+if(start_y<end_y) {circle_y = start_y;fprintf(fp, "//starty(%.2f)endy(%.2f). circley has been set to starty\n",start_y,end_y);};
+//if(start_y>end_y) {circle_y = end_y;fprintf(fp, "//starty(%.2f)endy(%.2f). circley has been set to endy\n",start_y,end_y);};
+if(start_y>end_y) {circle_y = end_y+radius;fprintf(fp, "//starty(%.2f)endy(%.2f). circley has been set to endy+rad\n",start_y,end_y);};
 
 //circle_y = end_y;
 } else {
@@ -119,44 +120,38 @@ int fourthquadcount = 0;
 
 int fq1=0, fq2=0, fq3=0, fq4=0;
 
-//for(fq1 = -200; fq1 < circle_x; fq1++) { // seems to count back
-
 for(fq1 = circle_x; fq1 > (circle_x-radius); fq1--) {
-////////////////////////////////////////hhhhhhhhhhhhhhhhhhhhh//////////////
 m = fq1;
-//if((section1value>start_y)&&(fq1 < circle_x)&&((fq1<start_x)||(fq1>end_x))) {
 if((fq1 < circle_x)&&(start_x<circle_x)&&((fq1<start_x)||(fq1>end_x))) {
 y_val = section1value;
+fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section1value, circle_y);
 write_Out(m, y_val, l, fp, gType, 1);    //write_Out(xval, yval, l, fp)
 }
 }
 
 for(fq2 = circle_x-radius+1; fq2 < circle_x; fq2++) { // seems to be counting in the wrong direction.
-//for(fq2 = circle_x; fq2 > -200; fq2--) {
 m = fq2;
-//if((section2value>circle_y)&&(fq2 < circle_x)&&((fq2<end_x)||(fq2>start_x))) {
 if((fq2 < circle_x)&&(start_x<circle_x)&&((fq2<end_x)||(fq2>start_x))) {
 y_val = section2value;
+fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section2value, circle_y);
 write_Out(m, y_val, l, fp, gType, 2);    //write_Out(xval, yval, l, fp)
 }
 }
 
 for(fq3 = circle_x; fq3 < circle_x+radius; fq3++) {
 m = fq3;
-//if((section2value>circle_y)&&(fq3 > circle_x)&&((fq3<end_x)||(fq3>start_x))) {
 if((fq3 > circle_x)&&((fq3<end_x)||(fq3>start_x))) {
 y_val = section2value;
-fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section1value, circle_y);
-
+fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section2value, circle_y);
 write_Out(m, y_val, l, fp, gType, 3);    //write_Out(xval, yval, l, fp)
 }
 }
 
 for(fq4 = circle_x+radius; fq4 > circle_x; fq4--) {
 m = fq4;
-//if((section1value>start_y)&&(fq4 > circle_x)&&((fq4<start_x)||(fq4>end_x))) {
 if((fq4 > circle_x)&&((fq4<start_x)||(fq4>end_x))) {
 y_val = section1value;
+fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section1value, circle_y);
 write_Out(m, y_val, l, fp, gType, 4);    //write_Out(xval, yval, l, fp)
 }
 }
