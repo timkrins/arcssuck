@@ -4,6 +4,7 @@
 #include <math.h>
 
 #define section1value (circle_y-sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
+#define section4value (circle_x-sqrt((radius*radius)-(((float)m-circle_y)*((float)m-circle_y))))
 #define section2value (circle_y+sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
 #define jdiscover for(j=0;(line[i+j]!='\n'&&line[i+j]!=' '&&line[i+j]);j++){
 
@@ -52,6 +53,7 @@ FILE *file = fopen ( argv[1], "r" );
       }
       printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
       if (GVal == 2 || GVal == 3 ) {
+      fprintf(fp, "//G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
       do_CalculateAndPrint(GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal,1,fp,l);
       XLast = XVal;
       YLast = YVal;
@@ -92,15 +94,21 @@ float resolution = ((float)1/rez);
 //float dist_x = (start_x+end_x)/2;
 //float dist_y = (start_y+end_y)/2;
 
+fprintf(fp, "//Test3>rad%.2f\n",radius);
 printf("Radius <%f>\n", RDOPS);
+if(radius > 0) {
+circle_x = start_x;
+circle_y = end_y;
+} else {
 radius = RDOPS;
-
+};
+fprintf(fp, "//Test3>rad%.2f\n",radius);
 int firstquadcount = 0;
 int secondquadcount = 0;
 int thirdquadcount = 0;
 int fourthquadcount = 0;
 
-for(m = 20; m < 50; m++) { //for all values of x
+for(m = -100; m < 200; m++) { //for all values of x
 
 if(section1value>start_y) {
 if(m < circle_x) {firstquadcount++;};
@@ -110,11 +118,17 @@ if(section2value>circle_y) {
 if(m < circle_x) {secondquadcount++;};
 if(m > circle_x) {thirdquadcount++;};}
 
-//printf("Test2>m%d,rad%.2f,cx%.2f,cy%.2f,s1(%.2f),s2(%.2f)\n",m,radius,circle_y,circle_x, section1value,section2value);
+/*
+if((section1value>start_y)&&(m < circle_x)&&(m<start_x)&&(m>end_x)) {firstquadcount++;}; //done
+if((section2value>start_y)&&(m < circle_x)&&(m>start_x)&&(m<end_x)) {secondquadcount++;};
+if((section2value>circle_y)&&(m > circle_x)&&(m>start_x)&&(m<end_x)) {thirdquadcount++;};
+if((section1value>circle_y)&&(m > circle_x)&&(m<start_x)&&(m>end_x)) {fourthquadcount++;};
+*/
+//fprintf(fp, "//Test2>m%d,rad%.2f,cx%.2f,cy%.2f,s1(%.2f),s2(%.2f)\n",m,radius,circle_x, circle_y, section1value,section2value);
 
 }
 // Test>7,11,11,7
-printf("Test>%d,%d,%d,%d\n",firstquadcount, secondquadcount, thirdquadcount, fourthquadcount);
+fprintf(fp, "////TestFP>%d,%d,%d,%d\n",firstquadcount, secondquadcount, thirdquadcount, fourthquadcount);
 int fq1, fq2, fq3, fq4;
 for(fq1 = 0; fq1 < firstquadcount; fq1++) {
 m = (start_x-fq1);
