@@ -3,25 +3,6 @@
 G00 Z10
 G00 X20.000 Y0.000
 G01 Z0
-G01 X20.000 Y-1.#IO // G03 at line 20
-G01 X19.000 Y-1.#IO // G03 at line 20
-G01 X18.000 Y-1.#IO // G03 at line 20
-G01 X17.000 Y-1.#IO // G03 at line 20
-G01 X16.000 Y-1.#IO // G03 at line 20
-G01 X15.000 Y-1.#IO // G03 at line 20
-G01 X14.000 Y-1.#IO // G03 at line 20
-G01 X13.000 Y-1.#IO // G03 at line 20
-G01 X12.000 Y-1.#IO // G03 at line 20
-G01 X11.000 Y-1.#IO // G03 at line 20
-G01 X10.000 Y-1.#IO // G03 at line 20
-G01 X9.000 Y-1.#IO // G03 at line 20
-G01 X8.000 Y-1.#IO // G03 at line 20
-G01 X7.000 Y-1.#IO // G03 at line 20
-G01 X6.000 Y-1.#IO // G03 at line 20
-G01 X5.000 Y-1.#IO // G03 at line 20
-G01 X4.000 Y-1.#IO // G03 at line 20
-G01 X3.000 Y-1.#IO // G03 at line 20
-G01 X2.000 Y-1.#IO // G03 at line 20
-G01 X1.000 Y-1.#IO // G03 at line 20
-G01 X0.000 Y-1.#IO // G03 at line 20
+G01 X5.000 Y20.811 // G03 at line 4
+G01 X6.000 Y20.780 // G03 at line 4
 G00 Z10

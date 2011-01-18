@@ -1,25 +1,5 @@
 //ArcsSuck 0.1 by Tim K. Output of file "challenge04.NC"
 
 G01 X0 Y10 Z0
-G01 X0.000 Y10.000 // G03 at line 20
-G01 X1.000 Y5.641 // G03 at line 20
-G01 X2.000 Y4.000 // G03 at line 20
-G01 X3.000 Y2.859 // G03 at line 20
-G01 X4.000 Y2.000 // G03 at line 20
-G01 X5.000 Y1.340 // G03 at line 20
-G01 X6.000 Y0.835 // G03 at line 20
-G01 X7.000 Y0.461 // G03 at line 20
-G01 X8.000 Y0.202 // G03 at line 20
-G01 X9.000 Y0.050 // G03 at line 20
-G01 X10.000 Y0.000 // G03 at line 20
-G01 X11.000 Y0.050 // G03 at line 20
-G01 X12.000 Y0.202 // G03 at line 20
-G01 X13.000 Y0.461 // G03 at line 20
-G01 X14.000 Y0.835 // G03 at line 20
-G01 X15.000 Y1.340 // G03 at line 20
-G01 X16.000 Y2.000 // G03 at line 20
-G01 X17.000 Y2.859 // G03 at line 20
-G01 X18.000 Y4.000 // G03 at line 20
-G01 X19.000 Y5.641 // G03 at line 20
-G01 X20.000 Y10.000 // G03 at line 20
+G01 X0.000 Y0.000 // G03 at line 2
 G01 X0 Y10

@@ -1,7 +1,0 @@
-//ArcsSuck 0.1 by Tim K. Output of file "C:\Users\Tim\Desktop\ArcsSuck\NC testing files\challenge10.NC"
-
-G00 X0 Y0 Z10
-G01 Z0
-G01 X30
-G01 X100
-G00 Z10

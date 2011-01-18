@@ -3,8 +3,12 @@
 #include <string.h>
 #include <math.h>
 
+#define section1value (circle_y-sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
+#define section2value (circle_y+sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
+#define jdiscover for(j=0;(line[i+j]!='\n'&&line[i+j]!=' '&&line[i+j]);j++){
+
 int find_LinearSteps(float centre_x, float centre_y, float radius, char rez);
-void write_Out(float GX, float GY, int l, FILE *fp);
+void write_Out(float GX, float GY, int l, FILE *fp, char gType);
 char do_Determine(float start_x, float start_y, float end_x, float end_y);
 void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, float GI, float GJ, char rez, FILE *fp, int l);
 
@@ -33,60 +37,18 @@ FILE *file = fopen ( argv[1], "r" );
       
       while ( fgets(line, sizeof line, file)) {
 				//GCLen, XCLen, YCLen, RCLen, ICLen, JCLen, GVal, IVal, JVal, RVal = 0;
-				memset(RString, 0, 16);
-				memset(IString, 0, 16);
-				memset(JString, 0, 16);
-				GCLen = 0;
-				XCLen = 0;
-				YCLen = 0;
-				RCLen = 0;
-				ICLen = 0;
-				JCLen = 0;
-				GVal = 0;
-				RVal = 0;
-				JVal = 0;
-				IVal = 0;
+				memset(RString, 0, 16);memset(IString, 0, 16);memset(JString, 0, 16);
+				GCLen = 0;XCLen = 0;YCLen = 0;RCLen = 0;ICLen = 0;JCLen = 0;GVal = 0;RVal = 0;JVal = 0;IVal = 0;
+				
 				for (i = 0; line[i]; i++) {
-				 if(line[i] == 'G' || line[i] == 'g') {
-					 GFirst = i;
-					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {GCLen = j;}
-					 for (k = 0; k < 16; k++) {*(GString+k) = line[i+1+k];}
-					 GVal = atoi(GString);
-					 }
-					 if(line[i] == 'X' || line[i] == 'x') {
-					 XFirst = i;
-					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {XCLen = j; }
-					 for (k = 0; k < 16; k++) {*(XString+k) = line[i+1+k];}
-					 XVal = atof(XString);
-					 }
-					 if(line[i] == 'Y' || line[i] == 'y') {
-					 YFirst = i;
-					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++)  {YCLen = j;}
-					 for (k = 0; k < 16; k++) {*(YString+k) = line[i+1+k];}
-					 YVal = atof(YString);
-					 }
-					 if(line[i] == 'R' || line[i] == 'r') {
-					 RFirst = i;
-					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {RCLen = j;}
-					 for (k = 0; k < 16; k++) {*(RString+k) = line[i+1+k];}
-					 RVal = atof(RString);
-					 }
-					 if(line[i] == 'I' || line[i] == 'i') {
-					 IFirst = i;
-					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {ICLen = j;}
-					 for (k = 0; k < 16; k++) {*(IString+k) = line[i+1+k];}
-					 IVal = atof(IString);
-					 }
-					 if(line[i] == 'J' || line[i] == 'j') {
-					 JFirst = i;
-					 for (j = 0; (line[i+j] != '\n' && line[i+j] != ' ' && line[i+j]); j++) {JCLen = j;}
-					 for (k = 0; k < 16; k++) {*(JString+k) = line[i+1+k];}
-					 JVal = atof(JString);
-					 }
-					 if(line[i] != '\n') {
-					 //printf("%c", line[i]);
-					 }
-					// printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
+				 if(line[i]=='G'||line[i]=='g'){GFirst=i; jdiscover GCLen=j;}for(k=0;k<16;k++){*(GString+k)=line[i+1+k];}GVal=atoi(GString);}
+				 if(line[i]=='X'||line[i]=='x'){XFirst=i; jdiscover XCLen=j;}for(k=0;k<16;k++){*(XString+k)=line[i+1+k];}XVal=atof(XString);}
+				 if(line[i]=='Y'||line[i]=='y'){YFirst=i; jdiscover YCLen=j;}for(k=0;k<16;k++){*(YString+k)=line[i+1+k];}YVal=atof(YString);}
+				 if(line[i]=='R'||line[i]=='r'){RFirst=i; jdiscover RCLen=j;}for(k=0;k<16;k++){*(RString+k)=line[i+1+k];}RVal=atof(RString);}
+				 if(line[i]=='I'||line[i]=='i'){IFirst=i; jdiscover ICLen=j;}for(k=0;k<16;k++){*(IString+k)=line[i+1+k];}IVal=atof(IString);}
+				 if(line[i]=='J'||line[i]=='j'){JFirst=i; jdiscover JCLen=j;}for(k=0;k<16;k++){*(JString+k)=line[i+1+k];}JVal=atof(JString);}
+				// printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
+				
       }
       printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
       if (GVal == 2 || GVal == 3 ) {
@@ -118,99 +80,64 @@ FILE *file = fopen ( argv[1], "r" );
 void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, float GI, float GJ, char rez, FILE *fp, int l) {
 float resolution = ((float)1/rez);
 
-
-        float centre_x;
-        float centre_y;
-        //float centre_x_neg;
-        //float centre_y_neg;
-        centre_x = GI;
-        centre_y = GJ;
-        printf("XCentre%f, YCentre%f, XStart%f, YStart%f\n", centre_x, centre_y, start_x, start_y);
-    float RDOPS = sqrt((((centre_x)-(start_x))*((centre_x)-(start_x)))+(((centre_y)-(start_y))*((centre_y+start_y)-(start_y))));
+        float circle_x;
+        float circle_y;
+        float y_val;
+        circle_x = GI;
+        circle_y = GJ;
+        printf("XCentre%f, YCentre%f, XStart%f, YStart%f\n", circle_x, circle_y, start_x, start_y);
+    float RDOPS = sqrt((((circle_x)-(start_x))*((circle_x)-(start_x)))+(((circle_y)-(start_y))*((circle_y+start_y)-(start_y))));
             //float RDOPS = sqrt(((centre_x-start_x)*(centre_x-start_x))+((centre_y-start_y)*(centre_y-start_y)));
-float DOPS = sqrt(((end_x-start_x)*(end_x-start_x))+((end_y-start_y)*(end_y-start_y)));
-float dist_x = (start_x+end_x)/2;
-float dist_y = (start_y+end_y)/2;
-//printf("RDOPS-err-\n");
+//float DOPS = sqrt(((end_x-start_x)*(end_x-start_x))+((end_y-start_y)*(end_y-start_y)));
+//float dist_x = (start_x+end_x)/2;
+//float dist_y = (start_y+end_y)/2;
+
 printf("Radius <%f>\n", RDOPS);
-//printf("RDOPS-%f-\n", DOPS);
+radius = RDOPS;
 
-        // Find first point on line so I can calculate the radius.
-int q;
-        //for (q = centre_x; (sqrt((RDOPS*RDOPS)-((q-centre_x)*(q-centre_y)))); q--) {
-       // printf("<<%d>>\n", q);
-       // }
-        
-        float xval = sqrt((radius*radius)-((m-centre_x)*(m-centre_y))); //bottom
-        
+int firstquadcount = 0;
+int secondquadcount = 0;
+int thirdquadcount = 0;
+int fourthquadcount = 0;
 
-if(GI>0) {
-centre_x = GI;
-} else {
-centre_x = dist_x + (sqrt((radius*radius)-((DOPS/2)*(DOPS/2)))*(start_y-end_y))/DOPS;
+for(m = 20; m < 50; m++) { //for all values of x
+
+if(section1value>start_y) {
+if(m < circle_x) {firstquadcount++;};
+if(m > circle_x) {fourthquadcount++;};}
+
+if(section2value>circle_y) {
+if(m < circle_x) {secondquadcount++;};
+if(m > circle_x) {thirdquadcount++;};}
+
+//printf("Test2>m%d,rad%.2f,cx%.2f,cy%.2f,s1(%.2f),s2(%.2f)\n",m,radius,circle_y,circle_x, section1value,section2value);
+
 }
-if(GJ>0) {
-centre_y = GI;
-} else {
-centre_y = dist_y + (sqrt((radius*radius)-((DOPS/2)*(DOPS/2)))*(start_x-end_x))/DOPS;
+// Test>7,11,11,7
+printf("Test>%d,%d,%d,%d\n",firstquadcount, secondquadcount, thirdquadcount, fourthquadcount);
+int fq1, fq2, fq3, fq4;
+for(fq1 = 0; fq1 < firstquadcount; fq1++) {
+m = (start_x-fq1);
+y_val = section1value;
+write_Out(m, y_val, l, fp, gType);            //write_Out(xval, yval, l, fp)
 }
-        // we now have our centre point for our circles (clockwise and counterclockwise)
-        // now to generate the linear movements.
-        
-int AmountSteps = find_LinearSteps(centre_x, centre_y, radius, rez);
-//for (m = 0; m <= AmountSteps; m++) { 
-//float centre_x = centre_x_neg;
-//float centre_y = centre_y_pos;
-printf("Test>%f\n",centre_y);
-for(m = -1000; m < 1000; m++) { //for all values of x
-float xval = sqrt((radius*radius)-((m-centre_x)*(m-centre_y))); //bottom
-float otherxval = 0-sqrt((radius*radius)-((m-centre_x)*(m-centre_y)));
-//printf("Test>%f\n",centre_y);
-//if(m < centre_x-radius) {
-//write_Out(m, line_y, l);
-//}
-//if((xval+centre_y < line_y)&&(m < centre_x)) {
-//write_Out(m, line_y, l);
-//}
-if((xval+centre_y > start_y)&&(m < centre_x)) { // where bottom arc + center < start_y
-write_Out(m, xval+centre_y, l, fp);
+for(fq2 = secondquadcount; fq2 > 0; fq2--) {
+m = (circle_x-fq2);
+y_val = section2value;
+write_Out(m, y_val, l, fp, gType);            //write_Out(xval, yval, l, fp)
 }
-if (otherxval+centre_y < start_y){
-write_Out(m, otherxval+centre_y, l, fp);
+for(fq3 = 0; fq3 <= thirdquadcount; fq3++) {
+m = (circle_x+fq3);
+y_val = section2value;
+write_Out(m, y_val, l, fp, gType);            //write_Out(xval, yval, l, fp)
 }
-if((xval+centre_y < start_y)&&(m > centre_x)) {
-write_Out(m, xval+centre_y, l, fp);
-}
-//if((xval+centre_y < line_y)&&(i > centre_x)) {
-//write_Out(m, line_y, l);
-//}
-//if(m > centre_x+radius) {
-//write_Out(m, line_y, l);
-//}
+for(fq4 = fourthquadcount-1; fq4 > 0; fq4--) {
+m = (end_x+fq4);
+y_val = section1value;
+write_Out(m, y_val, l, fp, gType);            //write_Out(xval, yval, l, fp)
 }
 }
 
-
-char do_Determine(float start_x, float start_y, float end_x, float end_y) {
-if (start_x < end_x) { x_positive = 1; } else { x_positive = 2; };
-if (start_y < end_y) { y_positive = 4; } else { y_positive = 7; };
-return (x_positive+y_positive);
-}
-
-void write_Out(float GX, float GY, int l, FILE *fp) {
-fprintf(fp, "G01 X%.3f Y%.3f // G0? at line %d\n", GX, GY, l);
-}
-
-int find_LinearSteps(float centre_x, float centre_y, float radius, char rez) {
-if(!rez) {rez=1;}
-float resolution = ((float)1/rez);
-int stepcounter = 0;
-int pyy;
-for(pyy = -1000; pyy < 1000; pyy++) {
-   if((sqrt((radius*radius)-((pyy-centre_x)*(pyy-centre_y)))) > 0) {
-   stepcounter++;
-   }
-   }
-   //printf("%d\n",stepcounter);
-return stepcounter;
+void write_Out(float GX, float GY, int l, FILE *fp, char gType) {
+fprintf(fp, "G01 X%.3f Y%.3f // G0%d at line %d\n", GX, GY, gType,l);
 }
