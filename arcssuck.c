@@ -88,9 +88,61 @@ float resolution = ((float)1/rez);
         float y_val;
         circle_x = GI;
         circle_y = GJ;
-        printf("XCentre%f, YCentre%f, XStart%f, YStart%f\n", circle_x, circle_y, start_x, start_y);
-    float RDOPS = sqrt((((circle_x)-(start_x))*((circle_x)-(start_x)))+(((circle_y)-(start_y))*((circle_y+start_y)-(start_y))));
-            //float RDOPS = sqrt(((centre_x-start_x)*(centre_x-start_x))+((centre_y-start_y)*(centre_y-start_y)));
+
+if(((end_y-start_y)/(end_x-start_x))>0) {
+fprintf(fp, "//Grad is positive\n");
+
+    if(end_x<start_x) {
+        fprintf(fp, "//StartX is greater\n");
+        if((end_x-start_x) >= radius) {circle_x = (start_x-radius);};
+        if((end_x-start_x) < radius) {circle_x = (start_x-radius);};
+    }
+    if(end_x>start_x) {
+        fprintf(fp, "//StartX is less\n");
+        if((end_x-start_x) >= radius) {circle_x = (start_x);};
+        if((end_x-start_x) < radius) {circle_x = (start_x);};
+    }
+    if(end_y<start_y) {
+        fprintf(fp, "//StartY is greater\n");
+        if((end_y-start_y) >= radius) {circle_y = (start_y);};
+        if((end_y-start_y) < radius) {circle_y = (start_y);};
+    }
+    if(end_y>start_y) {
+        fprintf(fp, "//StartY is less\n");
+        if((end_y-start_y) >= radius) {circle_y = (start_y);};
+        if((end_y-start_y) < radius) {circle_y = (start_y);};
+    }
+}
+
+if(((end_y-start_y)/(end_x-start_x))<0) {
+fprintf(fp, "//Grad is negative\n");
+
+    if(end_x<start_x) { /////////////////////////////////////////////////////////////////
+        fprintf(fp, "//StartX is greater\n");
+        if((end_x-start_x) >= radius) {circle_x = (radius);};
+        if((end_x-start_x) < radius) {circle_x = (radius);};
+    }
+    if(end_x>start_x) {
+        fprintf(fp, "//StartX is less\n");
+        if((end_x-start_x) >= radius) {circle_x = (end_x-radius);};
+        if((end_x-start_x) < radius) {circle_x = (end_x-radius);};
+    }
+    if(end_y<start_y) {
+        fprintf(fp, "//StartY is greater\n");
+        if((end_y-start_y) >= radius) {circle_y = (radius);};
+        if((end_y-start_y) < radius) {circle_y = (0-radius);};
+    }
+    if(end_y>start_y) { //////////////////////////////////////////////////////////////////
+        fprintf(fp, "//StartY is less\n");
+        if((end_y-start_y) >= radius) {circle_y = (start_y+radius);};
+        if((end_y-start_y) < radius) {circle_y = (start_y+radius);};
+    }
+}
+
+printf("XCentre%f, YCentre%f, XStart%f, YStart%f\n", circle_x, circle_y, start_x, start_y);
+//this is basically wrong.
+float RDOPS = sqrt((((circle_x)-(start_x))*((circle_x)-(start_x)))+(((circle_y)-(start_y))*((circle_y+start_y)-(start_y))));
+//float RDOPS = sqrt(((centre_x-start_x)*(centre_x-start_x))+((centre_y-start_y)*(centre_y-start_y)));
 //float DOPS = sqrt(((end_x-start_x)*(end_x-start_x))+((end_y-start_y)*(end_y-start_y)));
 //float dist_x = (start_x+end_x)/2;
 //float dist_y = (start_y+end_y)/2;
@@ -99,22 +151,19 @@ float resolution = ((float)1/rez);
 //printf("Radius <%f>\n", RDOPS);
 if(radius > 0) {
 //jval shouldnt be zero
-if(start_x>end_x) {circle_x = end_x;fprintf(fp, "//startx(%.2f)endx(%.2f). circlex has been set to endx\n",start_x,end_x);};
-if(start_x<end_x) {circle_x = start_x;fprintf(fp, "//startx(%.2f)endx(%.2f). circlex has been set to startx\n",start_x,end_x);};
-if(start_y<end_y) {circle_y = start_y;fprintf(fp, "//starty(%.2f)endy(%.2f). circley has been set to starty\n",start_y,end_y);};
-//if(start_y>end_y) {circle_y = end_y;fprintf(fp, "//starty(%.2f)endy(%.2f). circley has been set to endy\n",start_y,end_y);};
-if(start_y>end_y) {circle_y = end_y+radius;fprintf(fp, "//starty(%.2f)endy(%.2f). circley has been set to endy+rad\n",start_y,end_y);};
 
+
+//if(start_y>end_y) {circle_y = end_y;fprintf(fp, "//starty(%.2f)endy(%.2f). circley has been set to endy\n",start_y,end_y);};
 //circle_y = end_y;
 } else {
 radius = RDOPS;
 };
 
 fprintf(fp, "//Test3>rad%.2f\n",radius);
-int firstquadcount = 0;
-int secondquadcount = 0;
-int thirdquadcount = 0;
-int fourthquadcount = 0;
+//int firstquadcount = 0;
+//int secondquadcount = 0;
+//int thirdquadcount = 0;
+//int fourthquadcount = 0;
 
 
 
@@ -122,36 +171,36 @@ int fq1=0, fq2=0, fq3=0, fq4=0;
 
 for(fq1 = circle_x; fq1 > (circle_x-radius); fq1--) {
 m = fq1;
-if((fq1 < circle_x)&&(start_x<circle_x)&&((fq1<start_x)||(fq1>end_x))) {
+if((fq1 < circle_x)&&(end_x<start_x)&&(start_x<circle_x)&&((fq1<start_x)||(fq1>end_x))) {
 y_val = section1value;
-fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section1value, circle_y);
+fprintf(fp, "//startx(%.2f)circx(%.2f)sectionvalue(%.2f)circy(%.2f)\n",start_x, circle_x, section1value, circle_y);
 write_Out(m, y_val, l, fp, gType, 1);    //write_Out(xval, yval, l, fp)
 }
 }
 
 for(fq2 = circle_x-radius+1; fq2 < circle_x; fq2++) { // seems to be counting in the wrong direction.
 m = fq2;
-if((fq2 < circle_x)&&(start_x<circle_x)&&((fq2<end_x)||(fq2>start_x))) {
+if((fq2 < circle_x)&&(end_x>start_x)&&(start_x<circle_x)&&((fq2<end_x)||(fq2>start_x))) {
 y_val = section2value;
-fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section2value, circle_y);
+fprintf(fp, "//startx(%.2f)circx(%.2f)sectionvalue(%.2f)circy(%.2f)\n",start_x, circle_x, section2value, circle_y);
 write_Out(m, y_val, l, fp, gType, 2);    //write_Out(xval, yval, l, fp)
 }
 }
 
 for(fq3 = circle_x; fq3 < circle_x+radius; fq3++) {
 m = fq3;
-if((fq3 > circle_x)&&((fq3<end_x)||(fq3>start_x))) {
+if((fq3 > circle_x)&&(end_x>start_x)&&((fq3<end_x)||(fq3>start_x))) {
 y_val = section2value;
-fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section2value, circle_y);
+fprintf(fp, "//startx(%.2f)circx(%.2f)sectionvalue(%.2f)circy(%.2f)\n",start_x, circle_x, section2value, circle_y);
 write_Out(m, y_val, l, fp, gType, 3);    //write_Out(xval, yval, l, fp)
 }
 }
 
-for(fq4 = circle_x+radius; fq4 > circle_x; fq4--) {
+for(fq4 = circle_x+radius; fq4 > circle_x-radius; fq4--) {
 m = fq4;
-if((fq4 > circle_x)&&((fq4<start_x)||(fq4>end_x))) {
+if((fq4 > circle_x)&&(end_x<start_x)&&((fq4<start_x)||(fq4>end_x))) {
 y_val = section1value;
-fprintf(fp, "//start(%.2f)circ(%.2f)sectionvalue(%.2f)jval(%.2f)\n",start_x, circle_x, section1value, circle_y);
+fprintf(fp, "//startx(%.2f)circx(%.2f)sectionvalue(%.2f)circy(%.2f)\n",start_x, circle_x, section1value, circle_y);
 write_Out(m, y_val, l, fp, gType, 4);    //write_Out(xval, yval, l, fp)
 }
 }
