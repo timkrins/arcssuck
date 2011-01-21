@@ -99,8 +99,8 @@ fprintf(fp, "//Grad is positive\n");
     }
     if(end_x>start_x) {
         fprintf(fp, "//StartX is less\n");
-        if((end_x-start_x) >= radius) {circle_x = (start_x);};
-        if((end_x-start_x) < radius) {circle_x = (start_x);};
+        if((end_x-start_x) >= radius) {circle_x = (start_x+radius);};
+        if((end_x-start_x) < radius) {circle_x = (start_x+radius);};
     }
     if(end_y<start_y) {
         fprintf(fp, "//StartY is greater\n");
@@ -169,43 +169,54 @@ fprintf(fp, "//Test3>rad%.2f\n",radius);
 
 int fq1=0, fq2=0, fq3=0, fq4=0;
 
+if((end_x<start_x)&&(start_y<end_y)) {
+fprintf(fp, "//1circx(%.1f)circy(%.1f)\n", circle_x, circle_y);
 for(fq1 = circle_x; fq1 > (circle_x-radius); fq1--) {
 m = fq1;
-if((fq1 < circle_x)&&(end_x<start_x)&&(start_x<circle_x)&&((fq1<start_x)||(fq1>end_x))) {
+if((fq1<start_x)||(fq1>end_x)) {
 y_val = section1value;
-fprintf(fp, "//startx(%.2f)circx(%.2f)sectionvalue(%.2f)circy(%.2f)\n",start_x, circle_x, section1value, circle_y);
+fprintf(fp, "//startx(%.1f)starty(%.1f)circx(%.1f)circy(%.1f)sectionvalue(%.2f)\n",start_x, start_y, circle_x, circle_y, section1value);
 write_Out(m, y_val, l, fp, gType, 1);    //write_Out(xval, yval, l, fp)
 }
 }
+}
 
-for(fq2 = circle_x-radius+1; fq2 < circle_x; fq2++) { // seems to be counting in the wrong direction.
+if((end_x>start_x)&&(start_y<end_y)) {
+fprintf(fp, "//2circx(%.1f)circy(%.1f)\n", circle_x, circle_y);
+for(fq2 = circle_x-radius; fq2 < circle_x; fq2++) { // seems to be counting in the wrong direction.
 m = fq2;
-if((fq2 < circle_x)&&(end_x>start_x)&&(start_x<circle_x)&&((fq2<end_x)||(fq2>start_x))) {
+if((fq2<end_x)||(fq2>start_x)) {
 y_val = section2value;
-fprintf(fp, "//startx(%.2f)circx(%.2f)sectionvalue(%.2f)circy(%.2f)\n",start_x, circle_x, section2value, circle_y);
+fprintf(fp, "//startx(%.1f)starty(%.1f)circx(%.1f)circy(%.1f)sectionvalue(%.2f)\n",start_x, start_y, circle_x, circle_y, section1value);
 write_Out(m, y_val, l, fp, gType, 2);    //write_Out(xval, yval, l, fp)
 }
 }
+}
 
+if((end_x>start_x)&&(start_y>end_y)) {
 for(fq3 = circle_x; fq3 < circle_x+radius; fq3++) {
 m = fq3;
 if((fq3 > circle_x)&&(end_x>start_x)&&((fq3<end_x)||(fq3>start_x))) {
 y_val = section2value;
-fprintf(fp, "//startx(%.2f)circx(%.2f)sectionvalue(%.2f)circy(%.2f)\n",start_x, circle_x, section2value, circle_y);
+fprintf(fp, "//startx(%.1f)starty(%.1f)circx(%.1f)circy(%.1f)sectionvalue(%.2f)\n",start_x, start_y, circle_x, circle_y, section1value);
 write_Out(m, y_val, l, fp, gType, 3);    //write_Out(xval, yval, l, fp)
 }
 }
+}
 
+if((end_x<=(start_x-radius))&&(start_y>end_y)) {
 for(fq4 = circle_x+radius; fq4 > circle_x-radius; fq4--) {
 m = fq4;
 if((fq4 > circle_x)&&(end_x<start_x)&&((fq4<start_x)||(fq4>end_x))) {
 y_val = section1value;
-fprintf(fp, "//startx(%.2f)circx(%.2f)sectionvalue(%.2f)circy(%.2f)\n",start_x, circle_x, section1value, circle_y);
+fprintf(fp, "//startx(%.1f)starty(%.1f)circx(%.1f)circy(%.1f)sectionvalue(%.2f)\n",start_x, start_y, circle_x, circle_y, section1value);
 write_Out(m, y_val, l, fp, gType, 4);    //write_Out(xval, yval, l, fp)
+}
 }
 }
 }
 
 void write_Out(float GX, float GY, int l, FILE *fp, char gType, char section) {
+
 fprintf(fp, "G01 X%.3f Y%.3f // G0%d at line %d, Section%d.\n", GX, GY, gType,l, section);
 }

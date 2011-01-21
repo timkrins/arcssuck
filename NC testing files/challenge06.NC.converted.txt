@@ -5,498 +5,310 @@ G00 X20.000 Y0.000
 G01 Z0
 G01 X80
 //G03 (X80.0 Y0.0) X100.0 Y-20.0 R80.0 I0.0 J0.0 
-//I like to
-//Happens
+//Grad is negative
+//StartX is less
+//StartY is greater
 //Test3>rad80.00
-//start(80.00)circ(80.00)sectionvalue(-99.99)jval(-20.00)
-G01 X81.000 Y59.994 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.97)jval(-20.00)
-G01 X82.000 Y59.975 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.94)jval(-20.00)
-G01 X83.000 Y59.944 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.90)jval(-20.00)
-G01 X84.000 Y59.900 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.84)jval(-20.00)
-G01 X85.000 Y59.844 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.77)jval(-20.00)
-G01 X86.000 Y59.775 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.69)jval(-20.00)
-G01 X87.000 Y59.693 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.60)jval(-20.00)
-G01 X88.000 Y59.599 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.49)jval(-20.00)
-G01 X89.000 Y59.492 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.37)jval(-20.00)
-G01 X90.000 Y59.373 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.24)jval(-20.00)
-G01 X91.000 Y59.240 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-99.09)jval(-20.00)
-G01 X92.000 Y59.095 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-98.94)jval(-20.00)
-G01 X93.000 Y58.937 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-98.77)jval(-20.00)
-G01 X94.000 Y58.765 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-98.58)jval(-20.00)
-G01 X95.000 Y58.581 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-98.38)jval(-20.00)
-G01 X96.000 Y58.384 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-98.17)jval(-20.00)
-G01 X97.000 Y58.173 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-97.95)jval(-20.00)
-G01 X98.000 Y57.949 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-97.71)jval(-20.00)
-G01 X99.000 Y57.711 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-97.46)jval(-20.00)
-G01 X100.000 Y57.460 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-97.19)jval(-20.00)
-G01 X101.000 Y57.195 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-96.92)jval(-20.00)
-G01 X102.000 Y56.916 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-96.62)jval(-20.00)
-G01 X103.000 Y56.622 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-96.32)jval(-20.00)
-G01 X104.000 Y56.315 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-95.99)jval(-20.00)
-G01 X105.000 Y55.993 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-95.66)jval(-20.00)
-G01 X106.000 Y55.657 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-95.31)jval(-20.00)
-G01 X107.000 Y55.306 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-94.94)jval(-20.00)
-G01 X108.000 Y54.940 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-94.56)jval(-20.00)
-G01 X109.000 Y54.559 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-94.16)jval(-20.00)
-G01 X110.000 Y54.162 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-93.75)jval(-20.00)
-G01 X111.000 Y53.750 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-93.32)jval(-20.00)
-G01 X112.000 Y53.321 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-92.88)jval(-20.00)
-G01 X113.000 Y52.877 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-92.42)jval(-20.00)
-G01 X114.000 Y52.415 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-91.94)jval(-20.00)
-G01 X115.000 Y51.937 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-91.44)jval(-20.00)
-G01 X116.000 Y51.442 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-90.93)jval(-20.00)
-G01 X117.000 Y50.930 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-90.40)jval(-20.00)
-G01 X118.000 Y50.399 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-89.85)jval(-20.00)
-G01 X119.000 Y49.850 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-89.28)jval(-20.00)
-G01 X120.000 Y49.282 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-88.69)jval(-20.00)
-G01 X121.000 Y48.695 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-88.09)jval(-20.00)
-G01 X122.000 Y48.088 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-87.46)jval(-20.00)
-G01 X123.000 Y47.461 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-86.81)jval(-20.00)
-G01 X124.000 Y46.813 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-86.14)jval(-20.00)
-G01 X125.000 Y46.144 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-85.45)jval(-20.00)
-G01 X126.000 Y45.452 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-84.74)jval(-20.00)
-G01 X127.000 Y44.738 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-84.00)jval(-20.00)
-G01 X128.000 Y44.000 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-83.24)jval(-20.00)
-G01 X129.000 Y43.238 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-82.45)jval(-20.00)
-G01 X130.000 Y42.450 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-81.64)jval(-20.00)
-G01 X131.000 Y41.636 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-80.79)jval(-20.00)
-G01 X132.000 Y40.795 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-79.92)jval(-20.00)
-G01 X133.000 Y39.925 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-79.03)jval(-20.00)
-G01 X134.000 Y39.025 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-78.09)jval(-20.00)
-G01 X135.000 Y38.095 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-77.13)jval(-20.00)
-G01 X136.000 Y37.131 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-76.13)jval(-20.00)
-G01 X137.000 Y36.134 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-75.10)jval(-20.00)
-G01 X138.000 Y35.100 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-74.03)jval(-20.00)
-G01 X139.000 Y34.028 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-72.92)jval(-20.00)
-G01 X140.000 Y32.915 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-71.76)jval(-20.00)
-G01 X141.000 Y31.759 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-70.56)jval(-20.00)
-G01 X142.000 Y30.557 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-69.31)jval(-20.00)
-G01 X143.000 Y29.305 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-68.00)jval(-20.00)
-G01 X144.000 Y28.000 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-66.64)jval(-20.00)
-G01 X145.000 Y26.637 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-65.21)jval(-20.00)
-G01 X146.000 Y25.211 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-63.71)jval(-20.00)
-G01 X147.000 Y23.715 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-62.14)jval(-20.00)
-G01 X148.000 Y22.143 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-60.48)jval(-20.00)
-G01 X149.000 Y20.485 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-58.73)jval(-20.00)
-G01 X150.000 Y18.730 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-56.86)jval(-20.00)
-G01 X151.000 Y16.865 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-54.87)jval(-20.00)
-G01 X152.000 Y14.871 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-52.73)jval(-20.00)
-G01 X153.000 Y12.726 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-50.40)jval(-20.00)
-G01 X154.000 Y10.397 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-47.84)jval(-20.00)
-G01 X155.000 Y7.839 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-44.98)jval(-20.00)
-G01 X156.000 Y4.980 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-41.70)jval(-20.00)
-G01 X157.000 Y1.703 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-37.78)jval(-20.00)
-G01 X158.000 Y-2.224 // G03 at line 5, Section3.
-//start(80.00)circ(80.00)sectionvalue(-32.61)jval(-20.00)
-G01 X159.000 Y-7.390 // G03 at line 5, Section3.
-G01 X160.000 Y-20.000 // G03 at line 5, Section4.
-G01 X159.000 Y-32.610 // G03 at line 5, Section4.
-G01 X158.000 Y-37.776 // G03 at line 5, Section4.
-G01 X157.000 Y-41.703 // G03 at line 5, Section4.
-G01 X156.000 Y-44.980 // G03 at line 5, Section4.
-G01 X155.000 Y-47.839 // G03 at line 5, Section4.
-G01 X154.000 Y-50.397 // G03 at line 5, Section4.
-G01 X153.000 Y-52.726 // G03 at line 5, Section4.
-G01 X152.000 Y-54.871 // G03 at line 5, Section4.
-G01 X151.000 Y-56.865 // G03 at line 5, Section4.
-G01 X150.000 Y-58.730 // G03 at line 5, Section4.
-G01 X149.000 Y-60.485 // G03 at line 5, Section4.
-G01 X148.000 Y-62.143 // G03 at line 5, Section4.
-G01 X147.000 Y-63.715 // G03 at line 5, Section4.
-G01 X146.000 Y-65.211 // G03 at line 5, Section4.
-G01 X145.000 Y-66.637 // G03 at line 5, Section4.
-G01 X144.000 Y-68.000 // G03 at line 5, Section4.
-G01 X143.000 Y-69.305 // G03 at line 5, Section4.
-G01 X142.000 Y-70.557 // G03 at line 5, Section4.
-G01 X141.000 Y-71.759 // G03 at line 5, Section4.
-G01 X140.000 Y-72.915 // G03 at line 5, Section4.
-G01 X139.000 Y-74.028 // G03 at line 5, Section4.
-G01 X138.000 Y-75.100 // G03 at line 5, Section4.
-G01 X137.000 Y-76.134 // G03 at line 5, Section4.
-G01 X136.000 Y-77.131 // G03 at line 5, Section4.
-G01 X135.000 Y-78.095 // G03 at line 5, Section4.
-G01 X134.000 Y-79.025 // G03 at line 5, Section4.
-G01 X133.000 Y-79.925 // G03 at line 5, Section4.
-G01 X132.000 Y-80.795 // G03 at line 5, Section4.
-G01 X131.000 Y-81.636 // G03 at line 5, Section4.
-G01 X130.000 Y-82.450 // G03 at line 5, Section4.
-G01 X129.000 Y-83.238 // G03 at line 5, Section4.
-G01 X128.000 Y-84.000 // G03 at line 5, Section4.
-G01 X127.000 Y-84.738 // G03 at line 5, Section4.
-G01 X126.000 Y-85.452 // G03 at line 5, Section4.
-G01 X125.000 Y-86.144 // G03 at line 5, Section4.
-G01 X124.000 Y-86.813 // G03 at line 5, Section4.
-G01 X123.000 Y-87.461 // G03 at line 5, Section4.
-G01 X122.000 Y-88.088 // G03 at line 5, Section4.
-G01 X121.000 Y-88.695 // G03 at line 5, Section4.
-G01 X120.000 Y-89.282 // G03 at line 5, Section4.
-G01 X119.000 Y-89.850 // G03 at line 5, Section4.
-G01 X118.000 Y-90.399 // G03 at line 5, Section4.
-G01 X117.000 Y-90.930 // G03 at line 5, Section4.
-G01 X116.000 Y-91.442 // G03 at line 5, Section4.
-G01 X115.000 Y-91.937 // G03 at line 5, Section4.
-G01 X114.000 Y-92.415 // G03 at line 5, Section4.
-G01 X113.000 Y-92.877 // G03 at line 5, Section4.
-G01 X112.000 Y-93.321 // G03 at line 5, Section4.
-G01 X111.000 Y-93.750 // G03 at line 5, Section4.
-G01 X110.000 Y-94.162 // G03 at line 5, Section4.
-G01 X109.000 Y-94.559 // G03 at line 5, Section4.
-G01 X108.000 Y-94.940 // G03 at line 5, Section4.
-G01 X107.000 Y-95.306 // G03 at line 5, Section4.
-G01 X106.000 Y-95.657 // G03 at line 5, Section4.
-G01 X105.000 Y-95.993 // G03 at line 5, Section4.
-G01 X104.000 Y-96.315 // G03 at line 5, Section4.
-G01 X103.000 Y-96.622 // G03 at line 5, Section4.
-G01 X102.000 Y-96.916 // G03 at line 5, Section4.
-G01 X101.000 Y-97.195 // G03 at line 5, Section4.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.99)
+G01 X21.000 Y-0.006 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.97)
+G01 X22.000 Y-0.025 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.94)
+G01 X23.000 Y-0.056 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.90)
+G01 X24.000 Y-0.100 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.84)
+G01 X25.000 Y-0.156 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.77)
+G01 X26.000 Y-0.225 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.69)
+G01 X27.000 Y-0.307 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.60)
+G01 X28.000 Y-0.401 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.49)
+G01 X29.000 Y-0.508 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.37)
+G01 X30.000 Y-0.627 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.24)
+G01 X31.000 Y-0.760 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-159.09)
+G01 X32.000 Y-0.905 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-158.94)
+G01 X33.000 Y-1.063 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-158.77)
+G01 X34.000 Y-1.235 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-158.58)
+G01 X35.000 Y-1.419 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-158.38)
+G01 X36.000 Y-1.616 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-158.17)
+G01 X37.000 Y-1.827 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-157.95)
+G01 X38.000 Y-2.051 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-157.71)
+G01 X39.000 Y-2.289 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-157.46)
+G01 X40.000 Y-2.540 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-157.19)
+G01 X41.000 Y-2.805 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-156.92)
+G01 X42.000 Y-3.084 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-156.62)
+G01 X43.000 Y-3.378 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-156.32)
+G01 X44.000 Y-3.685 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-155.99)
+G01 X45.000 Y-4.007 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-155.66)
+G01 X46.000 Y-4.343 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-155.31)
+G01 X47.000 Y-4.694 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-154.94)
+G01 X48.000 Y-5.060 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-154.56)
+G01 X49.000 Y-5.441 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-154.16)
+G01 X50.000 Y-5.838 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-153.75)
+G01 X51.000 Y-6.250 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-153.32)
+G01 X52.000 Y-6.679 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-152.88)
+G01 X53.000 Y-7.123 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-152.42)
+G01 X54.000 Y-7.585 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-151.94)
+G01 X55.000 Y-8.063 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-151.44)
+G01 X56.000 Y-8.558 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-150.93)
+G01 X57.000 Y-9.070 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-150.40)
+G01 X58.000 Y-9.601 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-149.85)
+G01 X59.000 Y-10.150 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-149.28)
+G01 X60.000 Y-10.718 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-148.69)
+G01 X61.000 Y-11.305 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-148.09)
+G01 X62.000 Y-11.912 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-147.46)
+G01 X63.000 Y-12.539 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-146.81)
+G01 X64.000 Y-13.187 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-146.14)
+G01 X65.000 Y-13.856 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-145.45)
+G01 X66.000 Y-14.548 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-144.74)
+G01 X67.000 Y-15.262 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-144.00)
+G01 X68.000 Y-16.000 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-143.24)
+G01 X69.000 Y-16.762 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-142.45)
+G01 X70.000 Y-17.550 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-141.64)
+G01 X71.000 Y-18.364 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-140.79)
+G01 X72.000 Y-19.205 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-139.92)
+G01 X73.000 Y-20.075 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-139.03)
+G01 X74.000 Y-20.975 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-138.09)
+G01 X75.000 Y-21.905 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-137.13)
+G01 X76.000 Y-22.869 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-136.13)
+G01 X77.000 Y-23.866 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-135.10)
+G01 X78.000 Y-24.900 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-134.03)
+G01 X79.000 Y-25.972 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-132.92)
+G01 X80.000 Y-27.085 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-131.76)
+G01 X81.000 Y-28.241 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-130.56)
+G01 X82.000 Y-29.443 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-129.31)
+G01 X83.000 Y-30.695 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-128.00)
+G01 X84.000 Y-32.000 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-126.64)
+G01 X85.000 Y-33.363 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-125.21)
+G01 X86.000 Y-34.789 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-123.71)
+G01 X87.000 Y-36.285 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-122.14)
+G01 X88.000 Y-37.857 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-120.48)
+G01 X89.000 Y-39.515 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-118.73)
+G01 X90.000 Y-41.270 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-116.86)
+G01 X91.000 Y-43.135 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-114.87)
+G01 X92.000 Y-45.129 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-112.73)
+G01 X93.000 Y-47.274 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-110.40)
+G01 X94.000 Y-49.603 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-107.84)
+G01 X95.000 Y-52.161 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-104.98)
+G01 X96.000 Y-55.020 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-101.70)
+G01 X97.000 Y-58.297 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-97.78)
+G01 X98.000 Y-62.224 // G03 at line 5, Section3.
+//startx(80.0)starty(0.0)circx(20.0)circy(-80.0)sectionvalue(-92.61)
+G01 X99.000 Y-67.390 // G03 at line 5, Section3.
 G01 X100.0 Y-20.0 // End of line
 G01 X100 Y-80
 //G03 (X100.0 Y-80.0) X80.0 Y-100.0 R60.0 I0.0 J0.0 
-//Some days
-//Happens
+//Grad is positive
+//StartX is greater
+//StartY is greater
 //Test3>rad60.00
-//start(100.00)circ(80.00)sectionvalue(-156.20)jval(-100.00)
-G01 X101.000 Y-43.795 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-155.82)jval(-100.00)
-G01 X102.000 Y-44.179 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-155.42)jval(-100.00)
-G01 X103.000 Y-44.583 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-154.99)jval(-100.00)
-G01 X104.000 Y-45.009 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-154.54)jval(-100.00)
-G01 X105.000 Y-45.456 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-154.07)jval(-100.00)
-G01 X106.000 Y-45.926 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-153.58)jval(-100.00)
-G01 X107.000 Y-46.418 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-153.07)jval(-100.00)
-G01 X108.000 Y-46.934 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-152.53)jval(-100.00)
-G01 X109.000 Y-47.474 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-151.96)jval(-100.00)
-G01 X110.000 Y-48.038 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-151.37)jval(-100.00)
-G01 X111.000 Y-48.629 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-150.75)jval(-100.00)
-G01 X112.000 Y-49.246 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-150.11)jval(-100.00)
-G01 X113.000 Y-49.890 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-149.44)jval(-100.00)
-G01 X114.000 Y-50.563 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-148.73)jval(-100.00)
-G01 X115.000 Y-51.266 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-148.00)jval(-100.00)
-G01 X116.000 Y-52.000 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-147.23)jval(-100.00)
-G01 X117.000 Y-52.767 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-146.43)jval(-100.00)
-G01 X118.000 Y-53.567 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-145.60)jval(-100.00)
-G01 X119.000 Y-54.404 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-144.72)jval(-100.00)
-G01 X120.000 Y-55.279 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-143.81)jval(-100.00)
-G01 X121.000 Y-56.194 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-142.85)jval(-100.00)
-G01 X122.000 Y-57.151 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-141.84)jval(-100.00)
-G01 X123.000 Y-58.155 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-140.79)jval(-100.00)
-G01 X124.000 Y-59.208 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-139.69)jval(-100.00)
-G01 X125.000 Y-60.314 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-138.52)jval(-100.00)
-G01 X126.000 Y-61.477 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-137.30)jval(-100.00)
-G01 X127.000 Y-62.704 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-136.00)jval(-100.00)
-G01 X128.000 Y-64.000 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-134.63)jval(-100.00)
-G01 X129.000 Y-65.373 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-133.17)jval(-100.00)
-G01 X130.000 Y-66.834 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-131.61)jval(-100.00)
-G01 X131.000 Y-68.393 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-129.93)jval(-100.00)
-G01 X132.000 Y-70.067 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-128.12)jval(-100.00)
-G01 X133.000 Y-71.875 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-126.15)jval(-100.00)
-G01 X134.000 Y-73.847 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-123.98)jval(-100.00)
-G01 X135.000 Y-76.021 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-121.54)jval(-100.00)
-G01 X136.000 Y-78.459 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-118.73)jval(-100.00)
-G01 X137.000 Y-81.265 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-115.36)jval(-100.00)
-G01 X138.000 Y-84.638 // G03 at line 7, Section3.
-//start(100.00)circ(80.00)sectionvalue(-110.91)jval(-100.00)
-G01 X139.000 Y-89.091 // G03 at line 7, Section3.
-G01 X140.000 Y-100.000 // G03 at line 7, Section4.
-G01 X139.000 Y-110.909 // G03 at line 7, Section4.
-G01 X138.000 Y-115.362 // G03 at line 7, Section4.
-G01 X137.000 Y-118.735 // G03 at line 7, Section4.
-G01 X136.000 Y-121.541 // G03 at line 7, Section4.
-G01 X135.000 Y-123.979 // G03 at line 7, Section4.
-G01 X134.000 Y-126.153 // G03 at line 7, Section4.
-G01 X133.000 Y-128.125 // G03 at line 7, Section4.
-G01 X132.000 Y-129.933 // G03 at line 7, Section4.
-G01 X131.000 Y-131.607 // G03 at line 7, Section4.
-G01 X130.000 Y-133.166 // G03 at line 7, Section4.
-G01 X129.000 Y-134.627 // G03 at line 7, Section4.
-G01 X128.000 Y-136.000 // G03 at line 7, Section4.
-G01 X127.000 Y-137.296 // G03 at line 7, Section4.
-G01 X126.000 Y-138.523 // G03 at line 7, Section4.
-G01 X125.000 Y-139.686 // G03 at line 7, Section4.
-G01 X124.000 Y-140.792 // G03 at line 7, Section4.
-G01 X123.000 Y-141.845 // G03 at line 7, Section4.
-G01 X122.000 Y-142.849 // G03 at line 7, Section4.
-G01 X121.000 Y-143.806 // G03 at line 7, Section4.
-G01 X120.000 Y-144.721 // G03 at line 7, Section4.
-G01 X119.000 Y-145.596 // G03 at line 7, Section4.
-G01 X118.000 Y-146.433 // G03 at line 7, Section4.
-G01 X117.000 Y-147.233 // G03 at line 7, Section4.
-G01 X116.000 Y-148.000 // G03 at line 7, Section4.
-G01 X115.000 Y-148.734 // G03 at line 7, Section4.
-G01 X114.000 Y-149.437 // G03 at line 7, Section4.
-G01 X113.000 Y-150.110 // G03 at line 7, Section4.
-G01 X112.000 Y-150.754 // G03 at line 7, Section4.
-G01 X111.000 Y-151.371 // G03 at line 7, Section4.
-G01 X110.000 Y-151.962 // G03 at line 7, Section4.
-G01 X109.000 Y-152.526 // G03 at line 7, Section4.
-G01 X108.000 Y-153.066 // G03 at line 7, Section4.
-G01 X107.000 Y-153.582 // G03 at line 7, Section4.
-G01 X106.000 Y-154.074 // G03 at line 7, Section4.
-G01 X105.000 Y-154.544 // G03 at line 7, Section4.
-G01 X104.000 Y-154.991 // G03 at line 7, Section4.
-G01 X103.000 Y-155.417 // G03 at line 7, Section4.
-G01 X102.000 Y-155.821 // G03 at line 7, Section4.
-G01 X101.000 Y-156.205 // G03 at line 7, Section4.
-G01 X100.000 Y-156.569 // G03 at line 7, Section4.
-G01 X99.000 Y-156.912 // G03 at line 7, Section4.
-G01 X98.000 Y-157.236 // G03 at line 7, Section4.
-G01 X97.000 Y-157.541 // G03 at line 7, Section4.
-G01 X96.000 Y-157.827 // G03 at line 7, Section4.
-G01 X95.000 Y-158.095 // G03 at line 7, Section4.
-G01 X94.000 Y-158.344 // G03 at line 7, Section4.
-G01 X93.000 Y-158.575 // G03 at line 7, Section4.
-G01 X92.000 Y-158.788 // G03 at line 7, Section4.
-G01 X91.000 Y-158.983 // G03 at line 7, Section4.
-G01 X90.000 Y-159.161 // G03 at line 7, Section4.
-G01 X89.000 Y-159.321 // G03 at line 7, Section4.
-G01 X88.000 Y-159.464 // G03 at line 7, Section4.
-G01 X87.000 Y-159.590 // G03 at line 7, Section4.
-G01 X86.000 Y-159.699 // G03 at line 7, Section4.
-G01 X85.000 Y-159.791 // G03 at line 7, Section4.
-G01 X84.000 Y-159.867 // G03 at line 7, Section4.
-G01 X83.000 Y-159.925 // G03 at line 7, Section4.
-G01 X82.000 Y-159.967 // G03 at line 7, Section4.
-G01 X81.000 Y-159.992 // G03 at line 7, Section4.
 G01 X80.0 Y-100.0 // End of line
 G01 x20 Y-100
 //G03 (X20.0 Y-100.0) X0.0 Y-80.0 R40.0 I0.0 J0.0 
-//Some days
-//Change what
+//Grad is negative
+//StartX is greater
+//StartY is less
 //Test3>rad40.00
-//start(20.00)circ(0.00)sectionvalue(-134.04)jval(-100.00)
-G01 X21.000 Y-65.956 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-133.41)jval(-100.00)
-G01 X22.000 Y-66.593 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-132.73)jval(-100.00)
-G01 X23.000 Y-67.274 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-132.00)jval(-100.00)
-G01 X24.000 Y-68.000 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-131.22)jval(-100.00)
-G01 X25.000 Y-68.775 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-130.40)jval(-100.00)
-G01 X26.000 Y-69.603 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-129.51)jval(-100.00)
-G01 X27.000 Y-70.487 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-128.57)jval(-100.00)
-G01 X28.000 Y-71.434 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-127.55)jval(-100.00)
-G01 X29.000 Y-72.450 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-126.46)jval(-100.00)
-G01 X30.000 Y-73.542 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-125.28)jval(-100.00)
-G01 X31.000 Y-74.722 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-124.00)jval(-100.00)
-G01 X32.000 Y-76.000 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-122.61)jval(-100.00)
-G01 X33.000 Y-77.395 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-121.07)jval(-100.00)
-G01 X34.000 Y-78.929 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-119.36)jval(-100.00)
-G01 X35.000 Y-80.635 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-117.44)jval(-100.00)
-G01 X36.000 Y-82.564 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-115.20)jval(-100.00)
-G01 X37.000 Y-84.801 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-112.49)jval(-100.00)
-G01 X38.000 Y-87.510 // G03 at line 9, Section3.
-//start(20.00)circ(0.00)sectionvalue(-108.89)jval(-100.00)
-G01 X39.000 Y-91.112 // G03 at line 9, Section3.
-G01 X40.000 Y-100.000 // G03 at line 9, Section4.
-G01 X39.000 Y-108.888 // G03 at line 9, Section4.
-G01 X38.000 Y-112.490 // G03 at line 9, Section4.
-G01 X37.000 Y-115.199 // G03 at line 9, Section4.
-G01 X36.000 Y-117.436 // G03 at line 9, Section4.
-G01 X35.000 Y-119.365 // G03 at line 9, Section4.
-G01 X34.000 Y-121.071 // G03 at line 9, Section4.
-G01 X33.000 Y-122.605 // G03 at line 9, Section4.
-G01 X32.000 Y-124.000 // G03 at line 9, Section4.
-G01 X31.000 Y-125.278 // G03 at line 9, Section4.
-G01 X30.000 Y-126.458 // G03 at line 9, Section4.
-G01 X29.000 Y-127.550 // G03 at line 9, Section4.
-G01 X28.000 Y-128.566 // G03 at line 9, Section4.
-G01 X27.000 Y-129.513 // G03 at line 9, Section4.
-G01 X26.000 Y-130.397 // G03 at line 9, Section4.
-G01 X25.000 Y-131.225 // G03 at line 9, Section4.
-G01 X24.000 Y-132.000 // G03 at line 9, Section4.
-G01 X23.000 Y-132.726 // G03 at line 9, Section4.
-G01 X22.000 Y-133.407 // G03 at line 9, Section4.
-G01 X21.000 Y-134.044 // G03 at line 9, Section4.
-G01 X20.000 Y-134.641 // G03 at line 9, Section4.
-G01 X19.000 Y-135.199 // G03 at line 9, Section4.
-G01 X18.000 Y-135.721 // G03 at line 9, Section4.
-G01 X17.000 Y-136.208 // G03 at line 9, Section4.
-G01 X16.000 Y-136.661 // G03 at line 9, Section4.
-G01 X15.000 Y-137.081 // G03 at line 9, Section4.
-G01 X14.000 Y-137.470 // G03 at line 9, Section4.
-G01 X13.000 Y-137.829 // G03 at line 9, Section4.
-G01 X12.000 Y-138.158 // G03 at line 9, Section4.
-G01 X11.000 Y-138.458 // G03 at line 9, Section4.
-G01 X10.000 Y-138.730 // G03 at line 9, Section4.
-G01 X9.000 Y-138.974 // G03 at line 9, Section4.
-G01 X8.000 Y-139.192 // G03 at line 9, Section4.
-G01 X7.000 Y-139.383 // G03 at line 9, Section4.
-G01 X6.000 Y-139.547 // G03 at line 9, Section4.
-G01 X5.000 Y-139.686 // G03 at line 9, Section4.
-G01 X4.000 Y-139.799 // G03 at line 9, Section4.
-G01 X3.000 Y-139.887 // G03 at line 9, Section4.
-G01 X2.000 Y-139.950 // G03 at line 9, Section4.
-G01 X1.000 Y-139.988 // G03 at line 9, Section4.
+//1circx(40.0)circy(-60.0)
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-100.00)
+G01 X40.000 Y-100.000 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-99.99)
+G01 X39.000 Y-99.987 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-99.95)
+G01 X38.000 Y-99.950 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-99.89)
+G01 X37.000 Y-99.887 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-99.80)
+G01 X36.000 Y-99.799 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-99.69)
+G01 X35.000 Y-99.686 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-99.55)
+G01 X34.000 Y-99.547 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-99.38)
+G01 X33.000 Y-99.383 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-99.19)
+G01 X32.000 Y-99.192 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-98.97)
+G01 X31.000 Y-98.974 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-98.73)
+G01 X30.000 Y-98.730 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-98.46)
+G01 X29.000 Y-98.458 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-98.16)
+G01 X28.000 Y-98.158 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-97.83)
+G01 X27.000 Y-97.829 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-97.47)
+G01 X26.000 Y-97.470 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-97.08)
+G01 X25.000 Y-97.081 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-96.66)
+G01 X24.000 Y-96.661 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-96.21)
+G01 X23.000 Y-96.208 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-95.72)
+G01 X22.000 Y-95.721 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-95.20)
+G01 X21.000 Y-95.199 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-94.64)
+G01 X20.000 Y-94.641 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-94.04)
+G01 X19.000 Y-94.044 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-93.41)
+G01 X18.000 Y-93.407 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-92.73)
+G01 X17.000 Y-92.726 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-92.00)
+G01 X16.000 Y-92.000 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-91.22)
+G01 X15.000 Y-91.225 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-90.40)
+G01 X14.000 Y-90.397 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-89.51)
+G01 X13.000 Y-89.513 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-88.57)
+G01 X12.000 Y-88.566 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-87.55)
+G01 X11.000 Y-87.550 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-86.46)
+G01 X10.000 Y-86.458 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-85.28)
+G01 X9.000 Y-85.278 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-84.00)
+G01 X8.000 Y-84.000 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-82.61)
+G01 X7.000 Y-82.605 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-81.07)
+G01 X6.000 Y-81.071 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-79.36)
+G01 X5.000 Y-79.365 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-77.44)
+G01 X4.000 Y-77.436 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-75.20)
+G01 X3.000 Y-75.199 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-72.49)
+G01 X2.000 Y-72.490 // G03 at line 9, Section1.
+//startx(20.0)starty(-100.0)circx(40.0)circy(-60.0)sectionvalue(-68.89)
+G01 X1.000 Y-68.888 // G03 at line 9, Section1.
 G01 X0.0 Y-80.0 // End of line
 G01 X0 y-20
 //G03 (X0.0 Y-20.0) X20.0 Y0.0 R20.0 I0.0 J0.0 
-//I like to
-//Change what
+//Grad is positive
+//StartX is less
+//StartY is less
 //Test3>rad20.00
-//start(0.00)circ(0.00)sectionvalue(-39.97)jval(-20.00)
-G01 X1.000 Y-0.025 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-39.90)jval(-20.00)
-G01 X2.000 Y-0.100 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-39.77)jval(-20.00)
-G01 X3.000 Y-0.226 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-39.60)jval(-20.00)
-G01 X4.000 Y-0.404 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-39.36)jval(-20.00)
-G01 X5.000 Y-0.635 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-39.08)jval(-20.00)
-G01 X6.000 Y-0.921 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-38.73)jval(-20.00)
-G01 X7.000 Y-1.265 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-38.33)jval(-20.00)
-G01 X8.000 Y-1.670 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-37.86)jval(-20.00)
-G01 X9.000 Y-2.139 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-37.32)jval(-20.00)
-G01 X10.000 Y-2.679 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-36.70)jval(-20.00)
-G01 X11.000 Y-3.297 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-36.00)jval(-20.00)
-G01 X12.000 Y-4.000 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-35.20)jval(-20.00)
-G01 X13.000 Y-4.801 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-34.28)jval(-20.00)
-G01 X14.000 Y-5.717 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-33.23)jval(-20.00)
-G01 X15.000 Y-6.771 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-32.00)jval(-20.00)
-G01 X16.000 Y-8.000 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-30.54)jval(-20.00)
-G01 X17.000 Y-9.464 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-28.72)jval(-20.00)
-G01 X18.000 Y-11.282 // G03 at line 11, Section3.
-//start(0.00)circ(0.00)sectionvalue(-26.24)jval(-20.00)
-G01 X19.000 Y-13.755 // G03 at line 11, Section3.
+//2circx(20.0)circy(-20.0)
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-20.00)
+G01 X0.000 Y-20.000 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-26.24)
+G01 X1.000 Y-13.755 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-28.72)
+G01 X2.000 Y-11.282 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-30.54)
+G01 X3.000 Y-9.464 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-32.00)
+G01 X4.000 Y-8.000 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-33.23)
+G01 X5.000 Y-6.771 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-34.28)
+G01 X6.000 Y-5.717 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-35.20)
+G01 X7.000 Y-4.801 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-36.00)
+G01 X8.000 Y-4.000 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-36.70)
+G01 X9.000 Y-3.297 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-37.32)
+G01 X10.000 Y-2.679 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-37.86)
+G01 X11.000 Y-2.139 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-38.33)
+G01 X12.000 Y-1.670 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-38.73)
+G01 X13.000 Y-1.265 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-39.08)
+G01 X14.000 Y-0.921 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-39.36)
+G01 X15.000 Y-0.635 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-39.60)
+G01 X16.000 Y-0.404 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-39.77)
+G01 X17.000 Y-0.226 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-39.90)
+G01 X18.000 Y-0.100 // G03 at line 11, Section2.
+//startx(0.0)starty(-20.0)circx(20.0)circy(-20.0)sectionvalue(-39.97)
+G01 X19.000 Y-0.025 // G03 at line 11, Section2.
 G01 X20.0 Y0.0 // End of line
 G00 Z10
