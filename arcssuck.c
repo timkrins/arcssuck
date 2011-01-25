@@ -3,15 +3,47 @@
 #include <string.h>
 #include <math.h>
 
-#define section1value (circle_y-sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
-#define section4value (circle_x-sqrt((radius*radius)-(((float)m-circle_y)*((float)m-circle_y))))
-#define section2value (circle_y+sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
+//#define section1value (circle_y-sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
+//#define section4value (circle_x-sqrt((radius*radius)-(((float)m-circle_y)*((float)m-circle_y))))
+//#define section2value (circle_y+sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
 
-int find_LinearSteps(float centre_x, float centre_y, float radius, char rez);
-void write_Out(float GX, float GY, int l, FILE *fp, char gType, char section);
-char do_Determine(float start_x, float start_y, float end_x, float end_y);
-void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, float GI, float GJ, char rez, FILE *fp, int l);
+void write_Out(float GX, float GY, FILE *fp, char gType, int l) {
+fprintf(fp, "G01 X%.3f Y%.3f // G0%d at line %d.\n", GX, GY, gType, l);
+}
 
+void G02GO(float start_x, float start_y, float end_x, float end_y, float circle_x, float circle_y, FILE *fp, int l) {
+//assumes G02
+
+				float aX = (start_x - circle_x);
+				float aY = (start_y - circle_y);
+				float bX = (end_x - circle_x);
+				float bY = (end_y - circle_y);
+
+				float angleA = atan2(bY, bX);
+				float angleB = atan2(aY, aX);
+
+				//float	angleA = atan2(aY, aX);
+				//float	angleB = atan2(bY, bX);
+					
+					
+				if (angleB <= angleA) angleB += 2 * M_PI;
+				float angle = angleB - angleA;
+
+				float radius = sqrt(aX * aX + aY * aY);
+				float length = radius * angle;
+				int steps, s, step;
+				steps = (int) ceil(length / 1);
+
+				for (s = 1; s <= steps; s++) {
+									step = steps - s; // Work backwards for CW
+									//step = s; // Work backwards for CW
+					float newPointX = circle_x + radius * cos(angleA + angle * ((float) step / steps));
+					float newPointY = circle_y + radius * sin(angleA + angle * ((float) step / steps));
+					write_Out(newPointX, newPointY, fp, 2, l);    //write_Out(xval, yval, l, fp)
+				}
+			}
+			
+			
 char filename[30], GString[10], XString[16], YString[16], RString[16], IString[16], JString[16];
 int x_positive, y_positive, rez, amt_steps, curstep, stepcalc, y_switch, x_direction, y_direction, i, j, k, m, n, p, GCLen, XCLen, YCLen, RCLen, ICLen, JCLen, GFirst, XFirst, YFirst, RFirst, IFirst, JFirst, GVal;
 int l = 1;
@@ -31,9 +63,7 @@ FILE *file = fopen ( argv[1], "r" );
       if (fp = fopen("converted.txt", "w")) {
       char line [ 128 ];
       
-      fprintf(fp, "//ArcsSuck 0.1 by Tim K. Output of file \"");
-      fprintf(fp, argv[1]);
-      fprintf(fp, "\"\n\n");
+      fprintf(fp, "//ArcsSuck 0.1 by Tim K. Output of file \""); fprintf(fp, argv[1]); fprintf(fp, "\"\n\n");
       
       while ( fgets(line, sizeof line, file)) {
 				//GCLen, XCLen, YCLen, RCLen, ICLen, JCLen, GVal, IVal, JVal, RVal = 0;
@@ -53,7 +83,7 @@ FILE *file = fopen ( argv[1], "r" );
       //printf( "G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
       if (GVal == 2 || GVal == 3 ) {
       fprintf(fp, "//G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
-      do_CalculateAndPrint(GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal,1,fp,l);
+      G02GO(XLast,YLast,XVal,YVal,IVal,JVal,fp,l);
       fprintf(fp, "G01 X%.1f Y%.1f // End of line\n", XVal,YVal);
       XLast = XVal;
       YLast = YVal;
@@ -78,145 +108,4 @@ FILE *file = fopen ( argv[1], "r" );
    }
    //getchar();
    return 0;
-}
-
-void do_CalculateAndPrint(char gType, float start_x, float start_y, float end_x, float end_y, float radius, float GI, float GJ, char rez, FILE *fp, int l) {
-float resolution = ((float)1/rez);
-
-        float circle_x;
-        float circle_y;
-        float y_val;
-        circle_x = GI;
-        circle_y = GJ;
-
-if(((end_y-start_y)/(end_x-start_x))>0) {
-fprintf(fp, "//Grad is positive\n");
-
-    if(end_x<start_x) {
-        fprintf(fp, "//StartX is greater\n");
-        if((end_x-start_x) >= radius) {circle_x = (start_x-radius);};
-        if((end_x-start_x) < radius) {circle_x = (start_x-radius);};
-    }
-    if(end_x>start_x) {
-        fprintf(fp, "//StartX is less\n");
-        if((end_x-start_x) >= radius) {circle_x = (start_x+radius);};
-        if((end_x-start_x) < radius) {circle_x = (start_x+radius);};
-    }
-    if(end_y<start_y) {
-        fprintf(fp, "//StartY is greater\n");
-        if((end_y-start_y) >= radius) {circle_y = (start_y);};
-        if((end_y-start_y) < radius) {circle_y = (start_y);};
-    }
-    if(end_y>start_y) {
-        fprintf(fp, "//StartY is less\n");
-        if((end_y-start_y) >= radius) {circle_y = (start_y);};
-        if((end_y-start_y) < radius) {circle_y = (start_y);};
-    }
-}
-
-if(((end_y-start_y)/(end_x-start_x))<0) {
-fprintf(fp, "//Grad is negative\n");
-
-    if(end_x<start_x) { /////////////////////////////////////////////////////////////////
-        fprintf(fp, "//StartX is greater\n");
-        if((end_x-start_x) >= radius) {circle_x = (radius);};
-        if((end_x-start_x) < radius) {circle_x = (radius);};
-    }
-    if(end_x>start_x) {
-        fprintf(fp, "//StartX is less\n");
-        if((end_x-start_x) >= radius) {circle_x = (end_x-radius);};
-        if((end_x-start_x) < radius) {circle_x = (end_x-radius);};
-    }
-    if(end_y<start_y) {
-        fprintf(fp, "//StartY is greater\n");
-        if((end_y-start_y) >= radius) {circle_y = (radius);};
-        if((end_y-start_y) < radius) {circle_y = (0-radius);};
-    }
-    if(end_y>start_y) { //////////////////////////////////////////////////////////////////
-        fprintf(fp, "//StartY is less\n");
-        if((end_y-start_y) >= radius) {circle_y = (start_y+radius);};
-        if((end_y-start_y) < radius) {circle_y = (start_y+radius);};
-    }
-}
-
-printf("XCentre%f, YCentre%f, XStart%f, YStart%f\n", circle_x, circle_y, start_x, start_y);
-//this is basically wrong.
-float RDOPS = sqrt((((circle_x)-(start_x))*((circle_x)-(start_x)))+(((circle_y)-(start_y))*((circle_y+start_y)-(start_y))));
-//float RDOPS = sqrt(((centre_x-start_x)*(centre_x-start_x))+((centre_y-start_y)*(centre_y-start_y)));
-//float DOPS = sqrt(((end_x-start_x)*(end_x-start_x))+((end_y-start_y)*(end_y-start_y)));
-//float dist_x = (start_x+end_x)/2;
-//float dist_y = (start_y+end_y)/2;
-
-//fprintf(fp, "//Test3>rad%.2f\n",radius);
-//printf("Radius <%f>\n", RDOPS);
-if(radius > 0) {
-//jval shouldnt be zero
-
-
-//if(start_y>end_y) {circle_y = end_y;fprintf(fp, "//starty(%.2f)endy(%.2f). circley has been set to endy\n",start_y,end_y);};
-//circle_y = end_y;
-} else {
-radius = RDOPS;
-};
-
-fprintf(fp, "//Test3>rad%.2f\n",radius);
-//int firstquadcount = 0;
-//int secondquadcount = 0;
-//int thirdquadcount = 0;
-//int fourthquadcount = 0;
-
-
-
-int fq1=0, fq2=0, fq3=0, fq4=0;
-
-if((end_x<start_x)&&(start_y<end_y)) {
-fprintf(fp, "//1circx(%.1f)circy(%.1f)\n", circle_x, circle_y);
-for(fq1 = circle_x; fq1 > (circle_x-radius); fq1--) {
-m = fq1;
-if((fq1<start_x)||(fq1>end_x)) {
-y_val = section1value;
-fprintf(fp, "//startx(%.1f)starty(%.1f)circx(%.1f)circy(%.1f)sectionvalue(%.2f)\n",start_x, start_y, circle_x, circle_y, section1value);
-write_Out(m, y_val, l, fp, gType, 1);    //write_Out(xval, yval, l, fp)
-}
-}
-}
-
-if((end_x>start_x)&&(start_y<end_y)) {
-fprintf(fp, "//2circx(%.1f)circy(%.1f)\n", circle_x, circle_y);
-for(fq2 = circle_x-radius; fq2 < circle_x; fq2++) { // seems to be counting in the wrong direction.
-m = fq2;
-if((fq2<end_x)||(fq2>start_x)) {
-y_val = section2value;
-fprintf(fp, "//startx(%.1f)starty(%.1f)circx(%.1f)circy(%.1f)sectionvalue(%.2f)\n",start_x, start_y, circle_x, circle_y, section1value);
-write_Out(m, y_val, l, fp, gType, 2);    //write_Out(xval, yval, l, fp)
-}
-}
-}
-
-if((end_x>start_x)&&(start_y>end_y)) {
-for(fq3 = circle_x; fq3 < circle_x+radius; fq3++) {
-m = fq3;
-if((fq3 > circle_x)&&(end_x>start_x)&&((fq3<end_x)||(fq3>start_x))) {
-y_val = section2value;
-fprintf(fp, "//startx(%.1f)starty(%.1f)circx(%.1f)circy(%.1f)sectionvalue(%.2f)\n",start_x, start_y, circle_x, circle_y, section1value);
-write_Out(m, y_val, l, fp, gType, 3);    //write_Out(xval, yval, l, fp)
-}
-}
-}
-
-if((end_x<=(start_x-radius))&&(start_y>end_y)) {
-for(fq4 = circle_x+radius; fq4 > circle_x-radius; fq4--) {
-m = fq4;
-if((fq4 > circle_x)&&(end_x<start_x)&&((fq4<start_x)||(fq4>end_x))) {
-y_val = section1value;
-fprintf(fp, "//startx(%.1f)starty(%.1f)circx(%.1f)circy(%.1f)sectionvalue(%.2f)\n",start_x, start_y, circle_x, circle_y, section1value);
-write_Out(m, y_val, l, fp, gType, 4);    //write_Out(xval, yval, l, fp)
-}
-}
-}
-}
-
-void write_Out(float GX, float GY, int l, FILE *fp, char gType, char section) {
-
-fprintf(fp, "G01 X%.3f Y%.3f // G0%d at line %d, Section%d.\n", GX, GY, gType,l, section);
 }

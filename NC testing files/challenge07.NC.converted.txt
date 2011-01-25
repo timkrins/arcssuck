@@ -4,6 +4,38 @@ G00 Z10
 G00 X20.000 Y0.000
 G01 Z0
 //G03 (X20.0 Y0.0) X0.0 Y0.0 R0.0 I5.0 J5.0 
-//Test3>rad15.81
+G01 X19.663 Y-0.915 // G02 at line 4.
+G01 X19.271 Y-1.807 // G02 at line 4.
+G01 X18.825 Y-2.673 // G02 at line 4.
+G01 X18.326 Y-3.510 // G02 at line 4.
+G01 X17.776 Y-4.315 // G02 at line 4.
+G01 X17.178 Y-5.085 // G02 at line 4.
+G01 X16.533 Y-5.816 // G02 at line 4.
+G01 X15.845 Y-6.506 // G02 at line 4.
+G01 X15.116 Y-7.152 // G02 at line 4.
+G01 X14.348 Y-7.752 // G02 at line 4.
+G01 X13.544 Y-8.304 // G02 at line 4.
+G01 X12.708 Y-8.805 // G02 at line 4.
+G01 X11.843 Y-9.254 // G02 at line 4.
+G01 X10.952 Y-9.648 // G02 at line 4.
+G01 X10.038 Y-9.987 // G02 at line 4.
+G01 X9.105 Y-10.269 // G02 at line 4.
+G01 X8.157 Y-10.493 // G02 at line 4.
+G01 X7.196 Y-10.658 // G02 at line 4.
+G01 X6.227 Y-10.764 // G02 at line 4.
+G01 X5.254 Y-10.809 // G02 at line 4.
+G01 X4.279 Y-10.795 // G02 at line 4.
+G01 X3.307 Y-10.721 // G02 at line 4.
+G01 X2.342 Y-10.586 // G02 at line 4.
+G01 X1.387 Y-10.393 // G02 at line 4.
+G01 X0.445 Y-10.141 // G02 at line 4.
+G01 X-0.479 Y-9.832 // G02 at line 4.
+G01 X-1.382 Y-9.466 // G02 at line 4.
+G01 X-2.261 Y-9.045 // G02 at line 4.
+G01 X-3.113 Y-8.571 // G02 at line 4.
+G01 X-3.934 Y-8.046 // G02 at line 4.
+G01 X-4.720 Y-7.471 // G02 at line 4.
+G01 X-5.470 Y-6.848 // G02 at line 4.
+G01 X-6.180 Y-6.180 // G02 at line 4.
 G01 X0.0 Y0.0 // End of line
 G00 Z10
