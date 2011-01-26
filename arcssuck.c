@@ -3,57 +3,43 @@
 #include <string.h>
 #include <math.h>
 
-//#define section1value (circle_y-sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
-//#define section4value (circle_x-sqrt((radius*radius)-(((float)m-circle_y)*((float)m-circle_y))))
-//#define section2value (circle_y+sqrt((radius*radius)-(((float)m-circle_x)*((float)m-circle_x))))
-
 void write_Out(float GX, float GY, FILE *fp, char gType, int l) {
 fprintf(fp, "G01 X%.3f Y%.3f // G0%d at line %d.\n", GX, GY, gType, l);
 }
 
 void GCIRCLE(int directy, float start_x, float start_y, float end_x, float end_y, float circle_x, float circle_y, FILE *fp, int l) {
-
-float angleA, angleB;
-
-				float aX = (start_x - circle_x);
-				float aY = (start_y - circle_y);
-				float bX = (end_x - circle_x);
-				float bY = (end_y - circle_y);
-
-
-
-if(directy == 2) {
-				angleA = atan2(bY, bX);
-				angleB = atan2(aY, aX);
+float aA, aB;
+				float dsX = (start_x - circle_x);
+				float dsY = (start_y - circle_y);
+				float deX = (end_x - circle_x);
+				float deY = (end_y - circle_y);
+        if(directy == 2) {
+				aA = atan2(deY, deX);
+				aB = atan2(dsY, dsX);
 				} else {
-				angleA = atan2(aY, aX);
-			angleB = atan2(bY, bX);
+				aA = atan2(dsY, dsX);
+        aB = atan2(deY, deX);
 				}
-
-					
-				if (angleB <= angleA) angleB += 2 * M_PI;
-				float angle = angleB - angleA;
-
-				float radius = sqrt(aX * aX + aY * aY);
-				float length = radius * angle;
+				if (aB <= aA) {
+				aB += 3.141592653589793238*2;
+				}
+				float radius = sqrt((dsX*dsX) + (dsY*dsY));
+				float a = aB - aA;
+				float length = radius*a;
 				int steps, s, step;
 				steps = (int) ceil(length / 1);
-
 				for (s = 1; s <= steps; s++) {
 				int step;
 				if(directy == 2) {
 				step = steps - s;
-
 				} else {
 								step = s;
 				}
-
-					float newPointX = circle_x + radius * cos(angleA + angle * ((float) step / steps));
-					float newPointY = circle_y + radius * sin(angleA + angle * ((float) step / steps));
-					write_Out(newPointX, newPointY, fp, 2, l);
+					float nextX = circle_x + radius * cos(aA+a*((float) step / steps));
+					float nextY = circle_y + radius * sin(aA+a*((float) step / steps));
+					write_Out(nextX, nextY, fp, 2, l);
 				}
 			}
-			
 			
 char filename[30], GString[10], XString[16], YString[16], RString[16], IString[16], JString[16];
 int x_positive, y_positive, rez, amt_steps, curstep, stepcalc, y_switch, x_direction, y_direction, i, j, k, m, n, p, GCLen, XCLen, YCLen, RCLen, ICLen, JCLen, GFirst, XFirst, YFirst, RFirst, IFirst, JFirst, GVal;
@@ -88,13 +74,33 @@ FILE *file = fopen ( argv[1], "r" );
      }
       if (GVal == 2 || GVal == 3 ) {
       fprintf(fp, "//G0%d (X%.1f Y%.1f) X%.1f Y%.1f R%.1f I%.1f J%.1f \n", GVal,XLast,YLast,XVal,YVal,RVal,IVal,JVal);
-      
+      float RDOPS = sqrt(((XVal-XLast)*(XVal-XLast))+((YVal-YLast)*(YVal-YLast)));
       if(RVal) {
-      //IVal = XLast;
-      //JVal = YVal;
-      }
-      
-      
+      float x2 = XVal;
+      float x1 = XLast;
+      float y2 = YVal;
+      float y1 = YLast;
+      float x_cen_pos = 0;
+      float x_cen_neg = 0;
+      float y_cen_pos = 0;
+      float y_cen_neg = 0;
+      float r1 = RVal;
+      float r2 = RVal;
+      float d = sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)));
+       
+           x_cen_pos = ((x2+x1)/2) + (((x2-x1)*((r1*r1)-(r2*r2))/(2*(d*d))) + (((y2-y1)/(2*(d*d))*(sqrt((((r1+r2)*(r1+r2))-(d*d))*((d*d)-((r2-r1)*(r2-r1))))))));
+           x_cen_neg = ((x2+x1)/2) - (((x2-x1)*((r1*r1)-(r2*r2))/(2*(d*d))) + (((y2-y1)/(2*(d*d))*(sqrt((((r1+r2)*(r1+r2))-(d*d))*((d*d)-((r2-r1)*(r2-r1))))))));
+           y_cen_pos = ((y2+y1)/2) + (((y2-y1)*((r1*r1)-(r2*r2))/(2*(d*d))) + (((x2-x1)/(2*(d*d))*(sqrt((((r1+r2)*(r1+r2))-(d*d))*((d*d)-((r2-r1)*(r2-r1))))))));
+           y_cen_neg = ((y2+y1)/2) - (((y2-y1)*((r1*r1)-(r2*r2))/(2*(d*d))) + (((x2-x1)/(2*(d*d))*(sqrt((((r1+r2)*(r1+r2))-(d*d))*((d*d)-((r2-r1)*(r2-r1))))))));
+           
+       if(GVal == 2) {
+       IVal = x_cen_pos;
+       JVal = y_cen_neg;
+       } else {
+       IVal = x_cen_neg;
+       JVal = y_cen_pos;
+       }
+      }      
       GCIRCLE(GVal,XLast,YLast,XVal,YVal,IVal,JVal,fp,l);
       fprintf(fp, "G01 X%.1f Y%.1f // End of line\n", XVal,YVal);
       XLast = XVal;
@@ -108,7 +114,6 @@ FILE *file = fopen ( argv[1], "r" );
       }
       l++;
       }
-      
       }
       fclose (fp);
       fclose (file);
